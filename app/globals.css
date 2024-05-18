@@ -4,7 +4,8 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
+    /* --background: 0 0% 100%; */
+    --background: white;
     --foreground: 222.2 84% 4.9%;
 
     --card: 0 0% 100%;
@@ -13,7 +14,8 @@
     --popover: 0 0% 100%;
     --popover-foreground: 222.2 84% 4.9%;
 
-    --primary: 222.2 47.4% 11.2%;
+    /* --primary: 222.2 47.4% 11.2%; */
+    --primary: #38bdf8;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -79,10 +81,19 @@
   .wrapper {
     @apply max-w-7xl mx-auto px-3 md:px-8 2xl:px-0;
   }
+  @keyframes changeBackground {
+    0% { background-image: url('/images/1.jpg'); }
+    25% { background-image: url('/images/2.jpg'); }
+    50% { background-image: url('/images/3.jpg'); }
+    75% { background-image: url('/images/4.jpg'); }
+    100% { background-image: url('/images/1.jpg'); }
+  }
   .home-background {
-    background-image: url('/images/home-background.jpg');
-    height: 720px;
-    object-fit: fill;
+    /* background-image: url('/images/home-background.jpg'); */
+    /* height: 720px; */
+    /* object-fit: fill;
     background-size: cover;
+    animation: changeBackground 10s infinite; */
+    @apply bg-[url('/images/4.jpg')] object-fill bg-cover;
   }
 }
