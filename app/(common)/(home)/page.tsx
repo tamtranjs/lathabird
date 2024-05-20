@@ -1,4 +1,5 @@
 import Tagline from "@/components/elements/Tagline";
+import SearchForm from "@/components/elements/SearchForm";
 
 export default function Home() {
   return (
@@ -11,9 +12,9 @@ export default function Home() {
             <p className="text-white/70 text-xl max-w-xl mx-auto">Planning for a trip? We will organize your trip with the best places and within best budget!</p>
           </div>
           
-          <form action="" className="h-[400px] md:h-[100px] bg-gray-600">
-            abc
-          </form>
+          <div className="bg-white p-6">
+            <SearchForm />
+          </div>
         </div>
       </div>
     </main>
