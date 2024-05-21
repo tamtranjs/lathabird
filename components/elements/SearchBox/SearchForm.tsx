@@ -17,7 +17,7 @@ import {
   FormMessage,
 } from "@/components/ui/form";
 
-import CitySearch from "@/components/elements/CitySearch";
+import SearchBox from "@/components/elements/SearchBox/SearchBox";
 
 export default function SearchForm() {
 
@@ -49,7 +49,9 @@ export default function SearchForm() {
               <FormLabel>From</FormLabel>
               <FormControl>
                 {/* <Input placeholder="City/Country" {...field} /> */}
-                <CitySearch className="w-[198px] border rounded"/>
+                <div className="w-[198px] border rounded">
+                  <SearchBox/>
+                </div>
               </FormControl>
               <FormDescription>
                 This is your public display name.

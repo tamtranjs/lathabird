@@ -1,5 +1,5 @@
 import Tagline from "@/components/elements/Tagline";
-import SearchForm from "@/components/elements/SearchForm";
+import SearchForm from "@/components/elements/SearchBox/SearchForm";
 
 export default function Home() {
   return (
