@@ -63,7 +63,7 @@ export default function MatchingList(props: Props) {
       {displayCityList.map((city: City, index: number) => (
         <li
           key={index}
-          className="flex items-center gap-1 hover:bg-blue-300 justify-center p-1 cursor-pointer"
+          className="h-10 flex items-center gap-1 hover:bg-blue-300 justify-center p-1 cursor-pointer"
           onClick={() => onSelectCity(city)}
         >
           <span className="text-sm">{city.name}</span>

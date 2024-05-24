@@ -7,6 +7,7 @@ interface DropdownProps {
   children: React.ReactNode;
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
+  onClickOutSide?: () => void;
 }
 
 const DropdownContent: React.FC<DropdownProps> = ({ 
@@ -14,6 +15,7 @@ const DropdownContent: React.FC<DropdownProps> = ({
   children,
   isOpen,
   setIsOpen,
+  onClickOutSide,
 }) => {
 
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -22,6 +24,7 @@ const DropdownContent: React.FC<DropdownProps> = ({
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsOpen(false);
+        onClickOutSide && onClickOutSide();
       }
     };
 
@@ -29,15 +32,12 @@ const DropdownContent: React.FC<DropdownProps> = ({
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
     };
-  }, [setIsOpen]);
+  }, [setIsOpen, onClickOutSide]);
 
   return (
     <div ref={dropdownRef} className="relative select-none">
       <div onClick={() => {
-        setIsOpen(!isOpen)
-        console.log('====================================');
-        console.log('isOpen', isOpen);
-        console.log('====================================');
+        // setIsOpen(!isOpen)
       }}>
         {label}
       </div>
@@ -46,6 +46,13 @@ const DropdownContent: React.FC<DropdownProps> = ({
           {children}
         </div>
       )}
+      {/* <div
+        className={`w-full z-20 absolute right-0 border rounded-md shadow-lg bg-white transition-all duration-300 ease-in-out transform ${
+          isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+        }`}
+      >
+        {children}
+      </div> */}
     </div>
   );
 }

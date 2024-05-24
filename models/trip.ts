@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 export const TripSchema = z.object({
-  fromPlaces: z.array(z.string()),
+  fromPlaces: z.string(),
   toPlaces: z.array(z.string()),
   dates: z.array(z.string().refine(date => {
     const dateParts = date.split(' ');

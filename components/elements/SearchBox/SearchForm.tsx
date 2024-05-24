@@ -1,67 +1,70 @@
 "use client";
 
-import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { TripSchema } from "@/models/trip";
-import { z } from "zod";
+import type { FieldValues } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from "@/components/ui/form";
-
 import SearchBox from "@/components/elements/SearchBox/SearchBox";
 
 export default function SearchForm() {
 
-  const form = useForm<z.infer<typeof TripSchema>>({
-    resolver: zodResolver(TripSchema),
-    defaultValues: {
-      fromPlaces: [],
-      toPlaces: [],
-      dates: [],
-    }
-  });
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    getValues,
+    setValue,
+  } = useForm()
 
-  const onSubmit = (values: z.infer<typeof TripSchema>) => {
-    console.log(values);
+  const onSubmit = async (data: FieldValues) => {
+    console.log(data);
+    await new Promise((resolve) => setTimeout(resolve, 1000));
   }
 
   return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-        <FormField
-          control={form.control}
-          name="fromPlaces"
-          rules={{
-            required: "From is required",
-            validate: value => value.length <= 5 || "From can have at most 5 places"
-          }}
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>From</FormLabel>
-              <FormControl>
-                {/* <Input placeholder="City/Country" {...field} /> */}
-                <div className="w-[198px] border rounded">
-                  <SearchBox/>
-                </div>
-              </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <Button type="submit">Submit</Button>
-      </form>
-    </Form>
+    <form onSubmit={handleSubmit(onSubmit)}
+      className="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-4"
+    >
+      <div>
+        <label htmlFor="fromPlace" className="form-label font-medium text-slate-900 dark:text-white">From:</label>
+        <div className="w-[198px] mt-2">
+          <input
+            type="text"
+            className="hidden"
+            {...register("fromPlace", {
+              required: "From places is required",
+            })}
+          />
+          <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
+            <SearchBox
+              placeholder="City/Country"
+              onChange={(value: string) => {setValue("fromPlace", value)}}/>
+          </div>
+          {errors.fromPlace && <p className="text-red-500 mt-2">{`${errors.fromPlace.message}`}</p>}
+        </div>
+      </div>
+      <div>
+        <label htmlFor="toPlace" className="form-label font-medium text-slate-900 dark:text-white">To:</label>
+        <div className="w-[198px] mt-2">
+          <input
+            type="text"
+            className="hidden"
+            {...register("toPlace")}
+          />
+          <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
+            <SearchBox
+              placeholder="Anywhere"
+              onChange={(value: string) => {setValue("toPlace", value)}}/>
+          </div>
+        </div>
+      </div>
+      <div>When</div>
+      <div>Show past deals</div>
+      <div><Button type="submit" disabled={isSubmitting}>Search</Button></div>
+
+      
+      
+    </form>
   )
 }

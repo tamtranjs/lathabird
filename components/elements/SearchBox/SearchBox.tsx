@@ -3,21 +3,41 @@ import InputSearch from "./InputSearch";
 import MatchingList from "./MatchingList";
 import { useEffect, useState } from "react";
 
-export default function SearchBox() {
+interface Props {
+  placeholder?: string;
+  onChange: (values: string) => void;
+}
 
+export default function SearchBox(props: Props) {
+
+  const { onChange } = props;
   const [isOpen, setIsOpen] = useState(true);
+
   const [inputValue, setInputValue] = useState("");
   const [tagList, setTagList] = useState<string[]>([]);
 
   useEffect(() => {
-    setIsOpen(true);
+    if (inputValue === "") {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
+    }
   }, [inputValue]);
+
+  useEffect(() => {
+    if (tagList.length === 0) {
+      onChange && onChange("");
+      return;
+    } else {
+      onChange && onChange(tagList.join(","));
+    }
+  }, [tagList, onChange]);
 
   return (
     <DropdownContent
       label={
         <InputSearch
-          placeholder="Search for city"
+          placeholder={props.placeholder || "Search"}
           value={inputValue}
           setValue={setInputValue}
           tagList={tagList}
@@ -26,6 +46,7 @@ export default function SearchBox() {
       }
       isOpen={isOpen}
       setIsOpen={setIsOpen}
+      onClickOutSide={() => {setInputValue("")}}
     >
       <MatchingList 
         typingWord={inputValue}
