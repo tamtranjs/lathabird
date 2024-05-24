@@ -1,5 +1,5 @@
 
-import { useState, useEffect, useMemo } from "react";
+import { useState, useEffect } from "react";
 
 interface Props {
   typingWord: string;
@@ -8,7 +8,7 @@ interface Props {
   sourceList: SearchItem[];
 }
 
-export default function MatchingList(props: Props) {
+export default function DynamicList(props: Props) {
 
   const { typingWord, selectedList, sourceList } = props;
   const [displayList, setDisplayList] = useState<SearchItem[]>([]);

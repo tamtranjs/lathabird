@@ -5,41 +5,8 @@ import type { FieldValues } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import SearchBox from "@/components/elements/SearchBox/SearchBox";
-
-const sourceList: SearchItem [] = [
-  { name: "S. America", type: "City" },
-  { name: "Can Tho", type: "City" },
-  { name: "Ha Noi", type: "City" },
-  { name: "Nghe An", type: "City" },
-  { name: "Da Nang", type: "City" },
-  { name: "Hue", type: "City" },
-  { name: "Hai Phong", type: "City" },
-  { name: "Quang Nam", type: "City" },
-  { name: "Quang Ngai", type: "City" },
-  { name: "Quang Ninh", type: "City" },
-  { name: "Quang Tri", type: "City" },
-  { name: "Quang Binh", type: "City" },
-  { name: "Quang Nam", type: "City" },
-  { name: "Quang Ngai", type: "City" },
-  { name: "Quang Ninh", type: "City" },
-  { name: "Quang Tri", type: "City" },
-]
-
-const monthYearList: SearchItem [] = [
-  { name: "May 2024", type: "Month" },
-  { name: "June 2024", type: "Month" },
-  { name: "July 2024", type: "Month" },
-  { name: "August 2024", type: "Month" },
-  { name: "September 2024", type: "Month" },
-  { name: "October 2024", type: "Month" },
-  { name: "November 2024", type: "Month" },
-  { name: "December 2024", type: "Month" },
-  { name: "January 2025", type: "Month" },
-  { name: "February 2025", type: "Month" },
-  { name: "March 2025", type: "Month" },
-  { name: "April 2025", type: "Month" },
-  { name: "May 2025", type: "Month" },
-]
+import { CityList } from "@/lib/data";
+import { generateMonthYearList } from "@/lib/utils";
 
 export default function SearchForm() {
 
@@ -75,7 +42,7 @@ export default function SearchForm() {
             <SearchBox
               placeholder="City/Country"
               onChange={(value: string) => {setValue("fromPlace", value)}}
-              sourceList={sourceList}
+              sourceList={CityList}
             />
           </div>
           {errors.fromPlace && <p className="text-red-500 mt-2">{`${errors.fromPlace.message}`}</p>}
@@ -93,7 +60,7 @@ export default function SearchForm() {
             <SearchBox
               placeholder="Anywhere"
               onChange={(value: string) => {setValue("toPlace", value)}}
-              sourceList={sourceList}
+              sourceList={CityList}
             />
           </div>
         </div>
@@ -110,7 +77,8 @@ export default function SearchForm() {
             <SearchBox
               placeholder="All upcoming months"
               onChange={(value: string) => {setValue("monthYear", value)}}
-              sourceList={monthYearList}
+              sourceList={generateMonthYearList()}
+              dataType="static"
             />
           </div>
         </div>

@@ -8,6 +8,7 @@ interface DropdownProps {
   isOpen: boolean;
   setIsOpen: (isOpen: boolean) => void;
   onClickOutSide?: () => void;
+  dataType?: string;
 }
 
 const DropdownContent: React.FC<DropdownProps> = ({ 
@@ -16,6 +17,7 @@ const DropdownContent: React.FC<DropdownProps> = ({
   isOpen,
   setIsOpen,
   onClickOutSide,
+  dataType = "dynamic",
 }) => {
 
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -37,22 +39,17 @@ const DropdownContent: React.FC<DropdownProps> = ({
   return (
     <div ref={dropdownRef} className="relative select-none">
       <div onClick={() => {
-        // setIsOpen(!isOpen)
+         if (dataType === "static") {
+          setIsOpen(true)
+         }
       }}>
         {label}
       </div>
-      {isOpen && (
+      <div style={{ display: isOpen? "block" : "none"}}>
         <div className="w-full z-20 absolute right-0 mt-2 rounded-md shadow-lg bg-white">
           {children}
         </div>
-      )}
-      {/* <div
-        className={`w-full z-20 absolute right-0 border rounded-md shadow-lg bg-white transition-all duration-300 ease-in-out transform ${
-          isOpen ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
-        }`}
-      >
-        {children}
-      </div> */}
+      </div>
     </div>
   );
 }
