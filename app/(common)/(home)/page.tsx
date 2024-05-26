@@ -1,7 +1,8 @@
 import Tagline from "@/components/elements/Tagline";
 import SearchForm from "@/components/elements/SearchBox/SearchForm";
 
-import Destination from "./components/Destination";
+import Destinations from "./components/Destinations";
+import ToursPackages from "./components/ToursPackages";
 
 export default function Home() {
   return (
@@ -20,7 +21,8 @@ export default function Home() {
       </div>
       
       <section className="relative md:py-24 py-16 overflow-hidden">
-        <Destination />
+        <Destinations />
+        <ToursPackages />
       </section>
       
     </main>

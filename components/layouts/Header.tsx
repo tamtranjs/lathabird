@@ -68,7 +68,7 @@ export default function Header() {
   const renderMenu = () => {
     return menuItems.map((item, index) => (
       <li key={index}>
-        <Link href={item.url} className={`${isScrolled ? "text-gray-950 hover:text-blue-400" : "text-[#ffffff80] hover:text-white"} font-medium`}>
+        <Link href={item.url} className={`${isScrolled ? "text-gray-950 hover:text-primary" : "text-[#ffffff80] hover:text-white"} font-medium`}>
           {item.title}
         </Link>
       </li>
@@ -100,7 +100,7 @@ export default function Header() {
     <header
       className={`${isScrolled ? "bg-[#fffc]" : "bg-white min-[991px]:bg-[#ffffff00]"} w-full fixed top-0 z-50`}
     >
-      <div className="max-w-[1140px] mx-auto h-[74px] flex items-center wrapper">
+      <div className="wrapper h-[74px] flex items-center wrapper">
         <div className="flex-1">
           <Link href="/" className="inline-block">
             <Image
