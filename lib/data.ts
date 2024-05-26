@@ -64,3 +64,52 @@ export const CityList: City[] = [
   { "name": "Brasília", "type": "city" },
   { "name": "Salvador", "type": "city" }
 ]
+
+type Destination = {
+  image: string,
+  place: string,
+  hotels: string,
+}
+
+export const topDestination: Destination[] = [
+  {
+      image: "/images/listing/1.jpg",
+      place:'Rome, Italy',
+      hotels:'3 Hotels'
+  },
+  {
+      image: "/images/listing/2.jpg",
+      place:'Singapore',
+      hotels:'3 Hotels'
+  },
+  {
+      image: "/images/listing/3.jpg",
+      place:'Paris, France',
+      hotels:'3 Hotels'
+  },
+  {
+      image: "/images/listing/4.jpg",
+      place:'Goa, India',
+      hotels:'3 Hotels'
+  },
+  {
+      image: "/images/listing/5.jpg",
+      place:'Whistler, Canada',
+      hotels:'3 Hotels'
+  },
+  {
+      image: "/images/listing/6.jpg",
+      place:'Lumpur, Malaysia',
+      hotels:'3 Hotels'
+  },
+  {
+      image: "/images/listing/7.jpg",
+      place:'Sydney, Australia',
+      hotels:'3 Hotels'
+  },
+  {
+      image:  "/images/listing/8.jpg",
+      place:'Virginia Beach',
+      hotels:'3 Hotels'
+  },
+]

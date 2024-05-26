@@ -1,6 +1,8 @@
 import Tagline from "@/components/elements/Tagline";
 import SearchForm from "@/components/elements/SearchBox/SearchForm";
 
+import Destination from "./components/Destination";
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -16,6 +18,11 @@ export default function Home() {
           </div>
         </div>
       </div>
+      
+      <section className="relative md:py-24 py-16 overflow-hidden">
+        <Destination />
+      </section>
+      
     </main>
   );
 }
