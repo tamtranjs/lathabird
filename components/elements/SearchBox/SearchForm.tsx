@@ -4,6 +4,7 @@ import { useForm } from "react-hook-form";
 import type { FieldValues } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
+import { Checkbox } from "@/components/ui/checkbox";
 import SearchBox from "@/components/elements/SearchBox/SearchBox";
 import { CityList } from "@/lib/data";
 import { generateMonthYearList } from "@/lib/utils";
@@ -17,7 +18,14 @@ export default function SearchForm() {
     reset,
     getValues,
     setValue,
-  } = useForm()
+  } = useForm({
+    defaultValues: {
+      fromPlace: "",
+      toPlace: "",
+      monthYear: "",
+      showPastDeal: true,
+    }
+  })
 
   const onSubmit = async (data: FieldValues) => {
     console.log(data);
@@ -26,11 +34,11 @@ export default function SearchForm() {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}
-      className="grid lg:grid-cols-5 md:grid-cols-2 grid-cols-1 gap-4"
+      className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4"
     >
-      <div>
-        <label htmlFor="fromPlace" className="form-label font-medium text-slate-900 dark:text-white">From:</label>
-        <div className="w-[198px] mt-2">
+      <div className="flex items-center space-x-2">
+        <label htmlFor="fromPlace" className="form-label font-medium text-slate-900 dark:text-white">From</label>
+        <div className="w-full mt-2">
           <input
             type="text"
             className="hidden"
@@ -48,9 +56,9 @@ export default function SearchForm() {
           {errors.fromPlace && <p className="text-red-500 mt-2">{`${errors.fromPlace.message}`}</p>}
         </div>
       </div>
-      <div>
-        <label htmlFor="toPlace" className="form-label font-medium text-slate-900 dark:text-white">To:</label>
-        <div className="w-[198px] mt-2">
+      <div className="flex items-center space-x-2">
+        <label htmlFor="toPlace" className="form-label font-medium text-slate-900 dark:text-white">To</label>
+        <div className="w-full mt-2">
           <input
             type="text"
             className="hidden"
@@ -65,9 +73,9 @@ export default function SearchForm() {
           </div>
         </div>
       </div>
-      <div>
-        <label htmlFor="monthYear" className="form-label font-medium text-slate-900 dark:text-white">When:</label>
-        <div className="w-[198px] mt-2">
+      <div className="flex items-center space-x-2">
+        <label htmlFor="monthYear" className="form-label font-medium text-slate-900 dark:text-white">When</label>
+        <div className="w-full mt-2">
           <input
             type="text"
             className="hidden"
@@ -83,11 +91,19 @@ export default function SearchForm() {
           </div>
         </div>
       </div>
-      <div>Show past deals</div>
-      <div><Button type="submit" disabled={isSubmitting}>Search</Button></div>
-
-      
-      
+      <div className="flex justify-between items-center space-x-2">
+        <div className="flex items-center space-x-2">
+          <Checkbox id="show-pass-deal"
+            {...register("showPastDeal")}
+            defaultChecked={true}
+            onCheckedChange={(value: boolean) => {
+              setValue("showPastDeal", value)}
+            }
+          />
+          <label htmlFor="show-pass-deal" className="select-none text-slate-900 dark:text-white">Show past deals</label>
+        </div>
+        <div><Button type="submit" disabled={isSubmitting}>Search</Button></div>
+      </div>
     </form>
   )
 }
