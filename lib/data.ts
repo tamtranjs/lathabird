@@ -1,3 +1,5 @@
+import { FiShoppingCart, FiDribbble, FiLinkedin, FiFacebook, FiInstagram, FiTwitter, FiMail } from 'react-icons/fi';
+
 type City = {
   name: string;
   type: string;
@@ -210,5 +212,63 @@ export const packages: Package[] = [
     place: 'London',
     title: 'The Hills and Mountains',
     amount: '$ 58 / Day'
+  },
+]
+
+export const footerSocial = [
+  {
+      icon:FiShoppingCart,
+      link:'https://1.envato.market/travosy-react'
+  },
+  {
+      icon:FiDribbble,
+      link:'https://dribbble.com/shreethemes'
+  },
+  {
+      icon:FiLinkedin,
+      link:'http://linkedin.com/company/shreethemes'
+  },
+  {
+      icon:FiFacebook,
+      link:'https://www.facebook.com/shreethemes'
+  },
+  {
+      icon:FiInstagram,
+      link:'https://www.instagram.com/shreethemes'
+  },
+  {
+      icon:FiTwitter,
+      link:'https://twitter.com/shreethemes'
+  },
+  {
+      icon:FiMail,
+      link:'mailto:support@shreethemes.in'
+  },
+]
+
+export const footerCompany = [
+  {
+      name:'About us',
+      link:'/aboutus'
+  },
+  {
+      name:'Services',
+      link:'/services'
+  },
+  {
+      name:'Team',
+      link:'/team'
+  },
+  {
+      name:'Pricing',
+      link:'/pricing'
+  },
+  {
+      name:'Blog',
+      link:'/blogs'
+  },
+  {
+      name:' Login',
+      link:'/login'
   },
 ]

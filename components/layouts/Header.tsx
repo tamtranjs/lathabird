@@ -104,10 +104,10 @@ export default function Header() {
         <div className="flex-1">
           <Link href="/" className="inline-block">
             <Image
-              src="/vercel.svg"
+              src="/lathabird-logo.png"
               alt="Logo"
-              width={150}
-              height={50}
+              width={100}
+              height={100}
               priority
               // className="h-auto w-auto"
             />

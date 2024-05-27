@@ -75,6 +75,10 @@
   body {
     @apply bg-background text-foreground;
   }
+  .bg-dark-footer {
+    --tw-bg-opacity: 1 !important;
+    background-color: rgb(22 28 40/ 1) !important;
+  }
 }
 
 @layer components {

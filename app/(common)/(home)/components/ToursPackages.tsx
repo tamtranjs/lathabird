@@ -22,8 +22,8 @@ export default function ToursPackages() {
                   src={item.image}
                   className="scale-125 group-hover:scale-100 duration-500"
                   alt=""
-                  width={400}
-                  height={250}
+                  width={783}
+                  height={490}
                 />
                 {item.tagText && (
                   <div className="absolute top-0 start-0 p-4">
@@ -32,7 +32,7 @@ export default function ToursPackages() {
                 )}
 
                 <div className="absolute top-0 end-0 p-4">
-                  <Link href="#" className="size-8 inline-flex justify-center items-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-full text-slate-100 dark:text-slate-700 focus:text-red-500 dark:focus:text-red-500 hover:text-red-500 dark:hover:text-red-500">
+                  <Link href="#" className="size-8 inline-flex justify-center items-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-full text-slate-100 dark:text-slate-700 focus:text-primary dark:focus:text-primary hover:text-primary dark:hover:text-primary">
                     {/* <i className="mdi mdi-heart text-[20px] align-middle"></i> */}
                     <FiHeart className="text-[20px] align-middle"></FiHeart>
                   </Link>
@@ -40,8 +40,8 @@ export default function ToursPackages() {
               </div>
 
               <div className="p-3">
-                <p className="flex items-center text-slate-400 font-medium mb-2"><FiMapPin className="text-red-500 size-4 me-1"></FiMapPin> {item.place}</p>
-                <Link href={`/tour-detail-one/${item.id}`} className="text-lg font-medium hover:text-red-500 duration-500 ease-in-out">{item.title}</Link>
+                <p className="flex items-center text-slate-400 font-medium mb-2"><FiMapPin className="text-primary size-4 me-1"></FiMapPin> {item.place}</p>
+                <Link href={`/tour-detail-one/${item.id}`} className="text-lg font-medium hover:text-primary duration-500 ease-in-out">{item.title}</Link>
 
                 <div className="flex items-center mt-2">
                   <span className="text-slate-400">Rating:</span>
@@ -56,9 +56,9 @@ export default function ToursPackages() {
                 </div>
 
                 <div className="mt-3 pt-3 flex justify-between items-center border-t border-slate-100 dark:border-gray-800">
-                  <h5 className="text-lg font-medium text-red-500">{item.amount}</h5>
+                  <h5 className="text-lg font-medium text-primary">{item.amount}</h5>
 
-                  <Link href="" className="text-slate-400 hover:text-red-500 flex items-center">Explore Now<FiArrowRight></FiArrowRight></Link>
+                  <Link href="" className="text-slate-400 hover:text-primary flex items-center">Explore Now<FiArrowRight></FiArrowRight></Link>
                 </div>
               </div>
             </div>
