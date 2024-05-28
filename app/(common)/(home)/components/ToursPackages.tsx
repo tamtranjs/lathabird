@@ -3,7 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 
 import { packages } from "@/lib/data";
-import { FiMapPin, FiHeart, FiStar, FiArrowRight } from "react-icons/fi";
+import { FiMapPin } from "react-icons/fi";
+import { FaStar, FaHeart, FaArrowRight } from "react-icons/fa";
+
 
 export default function ToursPackages() {
   return (
@@ -34,7 +36,7 @@ export default function ToursPackages() {
                 <div className="absolute top-0 end-0 p-4">
                   <Link href="#" className="size-8 inline-flex justify-center items-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-full text-slate-100 dark:text-slate-700 focus:text-primary dark:focus:text-primary hover:text-primary dark:hover:text-primary">
                     {/* <i className="mdi mdi-heart text-[20px] align-middle"></i> */}
-                    <FiHeart className="text-[20px] align-middle"></FiHeart>
+                    <FaHeart className="text-[20px] align-middle"></FaHeart>
                   </Link>
                 </div>
               </div>
@@ -46,11 +48,11 @@ export default function ToursPackages() {
                 <div className="flex items-center mt-2">
                   <span className="text-slate-400">Rating:</span>
                   <ul className="text-lg font-medium text-amber-400 list-none ms-2 space-x-1 flex flex-wrap">
-                    <li className="inline"><FiStar className="align-middle"></FiStar></li>
-                    <li className="inline"><FiStar className="align-middle"></FiStar></li>
-                    <li className="inline"><FiStar className="align-middle"></FiStar></li>
-                    <li className="inline"><FiStar className="align-middle"></FiStar></li>
-                    <li className="inline"><FiStar className="align-middle"></FiStar></li>
+                    <li className="inline"><FaStar className="align-middle"></FaStar></li>
+                    <li className="inline"><FaStar className="align-middle"></FaStar></li>
+                    <li className="inline"><FaStar className="align-middle"></FaStar></li>
+                    <li className="inline"><FaStar className="align-middle"></FaStar></li>
+                    <li className="inline"><FaStar className="align-middle"></FaStar></li>
                     <li className="inline text-black dark:text-white text-sm">5.0(30)</li>
                   </ul>
                 </div>
@@ -58,7 +60,7 @@ export default function ToursPackages() {
                 <div className="mt-3 pt-3 flex justify-between items-center border-t border-slate-100 dark:border-gray-800">
                   <h5 className="text-lg font-medium text-primary">{item.amount}</h5>
 
-                  <Link href="" className="text-slate-400 hover:text-primary flex items-center">Explore Now<FiArrowRight></FiArrowRight></Link>
+                  <Link href="" className="text-slate-400 hover:text-primary flex items-center">Explore Now<FaArrowRight></FaArrowRight></Link>
                 </div>
               </div>
             </div>

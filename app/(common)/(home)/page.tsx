@@ -5,10 +5,11 @@ import SearchForm from "@/components/elements/SearchBox/SearchForm";
 
 import Destinations from "./components/Destinations";
 import ToursPackages from "./components/ToursPackages";
+import { Clients } from "./components/Clients";
 
 export default async function Home() {
   return (
-    <main className="min-h-screen">
+    <>
       <div className="home-background bg-gray-100 md:pt-48 md:pb-36 py-36">
         {/* <div className="hidden sm:block"><Tagline /></div> */}
         <div className="wrapper">
@@ -25,8 +26,8 @@ export default async function Home() {
       <section className="relative md:py-24 py-16 overflow-hidden">
         <Destinations />
         <ToursPackages />
+        <Clients />
       </section>
-      
-    </main>
+    </>
   );
 }

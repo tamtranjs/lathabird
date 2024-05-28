@@ -100,7 +100,7 @@ export default function Footer() {
         <div className="container relative text-center">
           <div className="grid grid-cols-1">
             <div className="text-center">
-              <p className="mb-0">© {new Date().getFullYear()} Lathabird <i className="mdi mdi-heart text-red-600"></i> by <Link href="https://shreethemes.in/" target="_blank" className="text-reset">Shreethemes</Link>.</p>
+              <p className="mb-0">Copyright &copy; {new Date().getFullYear()} by Lathabird</p>
             </div>
           </div>
         </div>
