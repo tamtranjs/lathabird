@@ -98,7 +98,7 @@ export default function Footer() {
       </div>
 
       <div className="py-[30px] px-0 border-t border-slate-800">
-        <div className="container relative text-center">
+        <div className="wrapper relative text-center">
           <div className="grid grid-cols-1">
             <div className="text-center">
               <p className="mb-0">Copyright &copy; {new Date().getFullYear()} by Lathabird</p>

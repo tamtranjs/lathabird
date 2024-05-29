@@ -104,11 +104,9 @@
     100% { background-image: url('/images/1.jpg'); }
   }
   .home-background {
-    /* background-image: url('/images/home-background.jpg'); */
     object-fit: fill;
     background-size: cover;
     animation: changeBackground 10s infinite;
-    /* height: 720px; */
     
     /* @apply bg-[url('/images/1.jpg')] object-fill bg-cover; */
   }
