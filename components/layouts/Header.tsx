@@ -68,7 +68,7 @@ export default function Header() {
   const renderMenu = () => {
     return menuItems.map((item, index) => (
       <li key={index}>
-        <Link href={item.url} className={`${isScrolled ? "text-gray-950 hover:text-primary" : "text-[#ffffff80] hover:text-white"} font-medium`}>
+        <Link href={item.url} className={`${isScrolled ? "text-gray-950 hover:text-primary" : "text-white hover:text-primary"} font-medium`}>
           {item.title}
         </Link>
       </li>
@@ -98,16 +98,16 @@ export default function Header() {
 
   return (
     <header
-      className={`${isScrolled ? "bg-[#fffc]" : "bg-white min-[991px]:bg-[#ffffff00]"} w-full fixed top-0 z-50`}
+      className={`${isScrolled ? "bg-[#fffc]" : "bg-[#ffffff1a]"} header`}
     >
       <div className="wrapper h-[74px] flex items-center wrapper">
         <div className="flex-1">
           <Link href="/" className="inline-block">
             <Image
-              src="/lathabird-logo.png"
+              src="/lathabird-logo.svg"
               alt="Logo"
-              width={100}
-              height={100}
+              width={200}
+              height={150}
               priority
               // className="h-auto w-auto"
             />

@@ -15,7 +15,7 @@ export default function ToursPackages() {
         <p className="text-slate-400 max-w-xl mx-auto">Planning for a trip? We will organize your trip with the best places and within best budget!</p>
       </div>
 
-      <div className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 mt-6 gap-6">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 mt-6 gap-6">
         {packages.map((item, index) => {
           return (
             <div className="group rounded-md shadow dark:shadow-gray-700" key={index}>

@@ -15,7 +15,7 @@
     --popover-foreground: 222.2 84% 4.9%;
 
     /* --primary: 222.2 47.4% 11.2%; */
-    --primary: #38bdf8;
+    --primary: #1CC7D0;
     --primary-foreground: 210 40% 98%;
 
     --secondary: 210 40% 96.1%;
@@ -79,6 +79,17 @@
     --tw-bg-opacity: 1 !important;
     background-color: rgb(22 28 40/ 1) !important;
   }
+  .before\:shadow-testi::before{
+    content: var(--tw-content) !important;
+    --tw-shadow: 2px 2px 2px -1px rgb(60 72 88 / 0.15) !important;
+    --tw-shadow-colored: 2px 2px 2px -1px var(--tw-shadow-color) !important;
+    -webkit-box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+            box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
+  }
+  .header {
+    @apply w-full fixed top-0 z-50;
+    backdrop-filter: blur(10px);
+  }
 }
 
 @layer components {
@@ -94,10 +105,11 @@
   }
   .home-background {
     /* background-image: url('/images/home-background.jpg'); */
-    /* height: 720px; */
-    /* object-fit: fill;
+    object-fit: fill;
     background-size: cover;
-    animation: changeBackground 10s infinite; */
-    @apply bg-[url('/images/4.jpg')] object-fill bg-cover;
+    animation: changeBackground 10s infinite;
+    /* height: 720px; */
+    
+    /* @apply bg-[url('/images/1.jpg')] object-fill bg-cover; */
   }
 }

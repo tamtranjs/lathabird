@@ -15,7 +15,7 @@ export default function Footer() {
                 <div className="lg:col-span-3 md:col-span-12">
                   <Link href="#" className="text-[22px] focus:outline-none">
                     <Image
-                      src={"/lathabird-logo.png"} alt=""
+                      src={"/lathabird-logo.svg"} alt=""
                       width={70}
                       height={70}
                     />
