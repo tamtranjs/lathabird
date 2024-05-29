@@ -16,8 +16,9 @@ export default function Footer() {
                   <Link href="#" className="text-[22px] focus:outline-none">
                     <Image
                       src={"/lathabird-logo.svg"} alt=""
-                      width={70}
-                      height={70}
+                      width={150}
+                      height={150}
+                      className="w-auto h-auto"
                     />
                   </Link>
                   <p className="mt-6 text-gray-300">Planning for a trip? We will organize your trip with the best places and within best budget!</p>

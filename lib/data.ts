@@ -217,59 +217,59 @@ export const packages: Package[] = [
 
 export const footerSocial = [
   {
-      icon:FiShoppingCart,
-      link:'https://1.envato.market/travosy-react'
+    icon: FiShoppingCart,
+    link: 'https://1.envato.market/travosy-react'
   },
   {
-      icon:FiDribbble,
-      link:'https://dribbble.com/shreethemes'
+    icon: FiDribbble,
+    link: 'https://dribbble.com/shreethemes'
   },
   {
-      icon:FiLinkedin,
-      link:'http://linkedin.com/company/shreethemes'
+    icon: FiLinkedin,
+    link: 'http://linkedin.com/company/shreethemes'
   },
   {
-      icon:FiFacebook,
-      link:'https://www.facebook.com/shreethemes'
+    icon: FiFacebook,
+    link: 'https://www.facebook.com/shreethemes'
   },
   {
-      icon:FiInstagram,
-      link:'https://www.instagram.com/shreethemes'
+    icon: FiInstagram,
+    link: 'https://www.instagram.com/shreethemes'
   },
   {
-      icon:FiTwitter,
-      link:'https://twitter.com/shreethemes'
+    icon: FiTwitter,
+    link: 'https://twitter.com/shreethemes'
   },
   {
-      icon:FiMail,
-      link:'mailto:support@shreethemes.in'
+    icon: FiMail,
+    link: 'mailto:support@shreethemes.in'
   },
 ]
 
 export const footerCompany = [
   {
-      name:'About us',
-      link:'/aboutus'
+    name: 'About us',
+    link: '/aboutus'
   },
   {
-      name:'Services',
-      link:'/services'
+    name: 'Services',
+    link: '/services'
   },
   {
-      name:'Team',
-      link:'/team'
+    name: 'Team',
+    link: '/team'
   },
   {
-      name:'Pricing',
-      link:'/pricing'
+    name: 'Pricing',
+    link: '/pricing'
   },
   {
-      name:'Blog',
-      link:'/blogs'
+    name: 'Blog',
+    link: '/blogs'
   },
   {
-      name:' Login',
-      link:'/login'
+    name: ' Login',
+    link: '/login'
   },
 ]
 
@@ -282,39 +282,123 @@ export type Client = {
 
 export const ClientData: Client[] = [
   {
-      image: "/images/client/01.jpg",
-      desc:'" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. "',
-      name:'Calvin Carlo',
-      possition:'Manager'
+    image: "/images/client/01.jpg",
+    desc: '" It seems that only fragments of the original text remain in the Lorem Ipsum texts used today. "',
+    name: 'Calvin Carlo',
+    possition: 'Manager'
   },
   {
-      image: "/images/client/02.jpg",
-      desc:'"The most well-known dummy text is the Lorem Ipsum, which is said to have originated in the 16th century."',
-      name:'Christa Smith',
-      possition:'Manager'
+    image: "/images/client/02.jpg",
+    desc: '"The most well-known dummy text is the Lorem Ipsum, which is said to have originated in the 16th century."',
+    name: 'Christa Smith',
+    possition: 'Manager'
   },
   {
-      image: "/images/client/03.jpg",
-      desc:'" One disadvantage of Lorum Ipsum is that in Latin certain letters appear more frequently than others. "',
-      name:'Jemina CLone',
-      possition:'Manager'
+    image: "/images/client/03.jpg",
+    desc: '" One disadvantage of Lorum Ipsum is that in Latin certain letters appear more frequently than others. "',
+    name: 'Jemina CLone',
+    possition: 'Manager'
   },
   {
-      image: "/images/client/04.jpg",
-      desc:'" Thus, Lorem Ipsum has only limited suitability as a visual filler for German texts. "',
-      name:'Smith Vodka',
-      possition:'Manager'
+    image: "/images/client/04.jpg",
+    desc: '" Thus, Lorem Ipsum has only limited suitability as a visual filler for German texts. "',
+    name: 'Smith Vodka',
+    possition: 'Manager'
   },
   {
-      image: "/images/client/05.jpg",
-      desc:'" There is now an abundance of readable dummy texts. These are usually used when a text is required. "',
-      name:'Cristino Murfi',
-      possition:'Manager'
+    image: "/images/client/05.jpg",
+    desc: '" There is now an abundance of readable dummy texts. These are usually used when a text is required. "',
+    name: 'Cristino Murfi',
+    possition: 'Manager'
   },
   {
-      image: "/images/client/06.jpg",
-      desc:'" According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero. "',
-      name:'Cristino Murfi',
-      possition:'Manager'
+    image: "/images/client/06.jpg",
+    desc: '" According to most sources, Lorum Ipsum can be traced back to a text composed by Cicero. "',
+    name: 'Cristino Murfi',
+    possition: 'Manager'
+  },
+]
+
+export const blogData: Blog[] = [
+  {
+    id: 1,
+    image: "/images/blog/1.jpg",
+    date: '13th Sep 2024',
+    title: 'This Spanish city is a feast for the eyes: Travosy',
+    desc: 'This is required when, for example, the final text is not yet available.',
+    tag: 'Travel',
+    segment: "this-spanish-city-is-a-feast-for-the-eyes-travosy",
+  },
+  {
+    id: 2,
+    image: "/images/blog/2.jpg",
+    date: '29th Nov 2024',
+    title: 'New Zealand’s South Island brims with majestic',
+    desc: 'This is required when, for example, the final text is not yet available.',
+    tag: 'Tour',
+    segment: "new-zealand-s-south-island-brims-with-majestic",
+  },
+  {
+    id: 3,
+    image: "/images/blog/3.jpg",
+    date: '29th Dec 2024',
+    title: 'When you visit the Eternal Rome City: Travosy',
+    desc: 'This is required when, for example, the final text is not yet available.',
+    tag: 'Tourist',
+    segment: "when-you-visit-the-eternal-rome-city-travosy",
+  },
+  {
+    id: 4,
+    image: "/images/blog/4.jpg",
+    date: '13th March 2024',
+    title: 'My Story When I Backpacked Around The World',
+    desc: 'This is required when, for example, the final text is not yet available.',
+    tag: 'Flight',
+    segment: "my-story-when-i-backpacked-around-the-world",
+  },
+  {
+    id: 5,
+    image: "/images/blog/5.jpg",
+    date: '5th May 2024',
+    title: 'Organization of accounting at the enterprise',
+    desc: 'This is required when, for example, the final text is not yet available.',
+    tag: 'Arab',
+    segment: "organization-of-accounting-at-the-enterprise",
+  },
+  {
+    id: 6,
+    image: "/images/blog/6.jpg",
+    date: '19th June 2024',
+    title: 'Three of the Best Day Trips to Make from Francisco',
+    desc: 'This is required when, for example, the final text is not yet available.',
+    tag: 'Dubai',
+    segment: "three-of-the-best-day-trips-to-make-from-francisco",
+  },
+  {
+    id: 7,
+    image: "/images/blog/7.jpg",
+    date: '20th June 2024',
+    title: 'Why Do People Travel ? Reasons People Travel in 2023',
+    desc: 'This is required when, for example, the final text is not yet available.',
+    tag: 'Maldivas',
+    segment: "why-do-people-travel-reasons-people-travel-in-2023",
+  },
+  {
+    id: 8,
+    image: "/images/blog/8.jpg",
+    date: '31st Aug 2024',
+    title: 'Jungles In Australia: Vermont’s Rugged, Retro Ski Mountain',
+    desc: 'This is required when, for example, the final text is not yet available.',
+    tag: 'News',
+    segment: "jungles-in-australia-vermont-s-rugged-retro-ski-mountain",
+  },
+  {
+    id: 9,
+    image: "/images/blog/9.jpg",
+    date: '1st Sep 2024',
+    title: 'Traveller Visiting Ice Cave With Amazing Eye-catching Scenes',
+    desc: 'This is required when, for example, the final text is not yet available.',
+    tag: 'Packages',
+    segment: "traveller-visiting-ice-cave-with-amazing-eye-catching-scenes",
   },
 ]
