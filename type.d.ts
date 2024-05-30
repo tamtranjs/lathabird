@@ -6,4 +6,9 @@ type Blog = {
   desc: string,
   tag: string,
   segment: string,
+  author: {
+    name: string,
+    role: string,
+    avatar: string,
+  }
 }

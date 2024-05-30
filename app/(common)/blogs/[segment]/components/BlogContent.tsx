@@ -4,12 +4,12 @@ import BlogSideBar from "./BlogSideBar";
 import TravelBlogs from "./TravelBlogs";
 
 interface Props {
-  data: Blog;
+  blogData: Promise< Blog | null>;
 }
 
 export default async function BlogContent(props: Props) {
 
-  const data = props.data;
+  const data = await props.blogData;
 
   return (
     <div className="wrapper">
@@ -17,7 +17,7 @@ export default async function BlogContent(props: Props) {
         <div className="lg:col-span-8 md:col-span-6">
           <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-800">
             <Image
-              src={data?.image ? data.image : "images/blog/9.jpg"}
+              src={data?.image ? data.image : "/images/blog/9.jpg"}
               alt=""
               width={1200}
               height={800}
@@ -29,7 +29,7 @@ export default async function BlogContent(props: Props) {
             </div>
           </div>
         </div>
-        <BlogSideBar />
+        <BlogSideBar authorData={data?.author}/>
       </div>
       <TravelBlogs />
     </div>

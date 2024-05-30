@@ -23,11 +23,11 @@ export default function BlogItem({ item }: { item: Blog }) {
           <span className="text-slate-400 text-sm ms-3">by <Link href="" className="text-slate-900 dark:text-white hover:text-red-500 dark:hover:text-red-500 font-medium">Travosy</Link></span>
         </div>
 
-        <Link href={`blogs/${item.segment}`} className="text-lg font-medium hover:text-red-500 duration-500 ease-in-out">{item.title}</Link>
+        <Link href={`/blogs/${item.segment}`} className="text-lg font-medium hover:text-red-500 duration-500 ease-in-out">{item.title}</Link>
         <p className="text-slate-400 mt-2">{item.desc}</p>
 
         <div className="mt-3">
-          <Link href={`blogs/${item.segment}`} className="hover:text-red-500 inline-flex items-center">Read More <FiChevronRight className="size-4 ms-1"></FiChevronRight></Link>
+          <Link href={`/blogs/${item.segment}`} className="hover:text-red-500 inline-flex items-center">Read More <FiChevronRight className="size-4 ms-1"></FiChevronRight></Link>
         </div>
       </div>
     </div>

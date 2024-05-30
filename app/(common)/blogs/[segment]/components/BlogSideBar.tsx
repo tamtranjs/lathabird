@@ -2,7 +2,15 @@ import Link from "next/link";
 import Image from "next/image";
 import { FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter } from "react-icons/fa";
 
-export default function BlogSideBar() {
+interface Props {
+  authorData?: {
+    avatar: string,
+    name: string,
+    role: string,
+  }
+}
+
+export default function BlogSideBar({ authorData }: Props) {
 
   const blogSocial = [FaFacebookF, FaInstagram, FaLinkedinIn, FaTwitter];
 
@@ -13,15 +21,15 @@ export default function BlogSideBar() {
           <h5 className="text-lg font-medium bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center">Author</h5>
           <div className="text-center mt-8">
             <Image
-              src={"/images/client/05.jpg"}
+              src={authorData?.avatar ? authorData.avatar : "/images/client/05.jpg"}
               className="h-20 w-20 mx-auto rounded-full shadow mb-4"
               alt=""
               width={80}
               height={80}
             />
 
-            <Link href="" className="text-lg font-medium hover:text-red-500 transition-all duration-500 ease-in-out h5">Cristina Romsey</Link>
-            <p className="text-slate-400">Content Writer</p>
+            <Link href="" className="text-lg font-medium hover:text-red-500 transition-all duration-500 ease-in-out h5">{authorData?.name}</Link>
+            <p className="text-slate-400">{authorData?.role}</p>
           </div>
 
           <h5 className="text-lg font-medium bg-gray-50 dark:bg-slate-800 shadow dark:shadow-gray-800 rounded-md p-2 text-center mt-8">Social sites</h5>
