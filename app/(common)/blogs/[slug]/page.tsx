@@ -8,15 +8,15 @@ import BlogIntro from "./components/BlogIntro";
 
 interface Props {
   params: {
-    segment: string;
+    slug: string;
   }
 }
 
 export async function generateMetadata(
-  { params: { segment }}: Props
-):Promise<Metadata> {
+  { params: { slug }}: Props
+): Promise<Metadata> {
 
-  const blogData: Promise<Blog | null> = getBlogDetail(segment);
+  const blogData: Promise<Blog | null> = getBlogDetail(slug);
   const data = await blogData;
 
   if (!data) {
@@ -32,9 +32,9 @@ export async function generateMetadata(
   }
 }
 
-export default function BlogDetail({ params: { segment }}: Props) {
+export default async function BlogDetail({ params: { slug }}: Props) {
 
-  const blogData: Promise<Blog | null> = getBlogDetail(segment);
+  const blogData: Promise<Blog | null> = getBlogDetail(slug);
 
   return (
     <>

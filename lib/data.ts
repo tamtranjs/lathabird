@@ -327,7 +327,7 @@ export const blogData: Blog[] = [
     title: 'This Spanish city is a feast for the eyes: Travosy',
     desc: 'This is required when, for example, the final text is not yet available.',
     tag: 'Travel',
-    segment: "this-spanish-city-is-a-feast-for-the-eyes-travosy",
+    slug: "this-spanish-city-is-a-feast-for-the-eyes-travosy",
     author: {
       avatar: "/images/client/01.jpg",
       name: 'Calvin Carlo',
@@ -341,7 +341,7 @@ export const blogData: Blog[] = [
     title: 'New Zealand’s South Island brims with majestic',
     desc: 'This is required when, for example, the final text is not yet available.',
     tag: 'Tour',
-    segment: "new-zealand-s-south-island-brims-with-majestic",
+    slug: "new-zealand-s-south-island-brims-with-majestic",
     author: {
       avatar: "/images/client/02.jpg",
       name: 'Christa Smith',
@@ -355,7 +355,7 @@ export const blogData: Blog[] = [
     title: 'When you visit the Eternal Rome City: Travosy',
     desc: 'This is required when, for example, the final text is not yet available.',
     tag: 'Tourist',
-    segment: "when-you-visit-the-eternal-rome-city-travosy",
+    slug: "when-you-visit-the-eternal-rome-city-travosy",
     author: {
       avatar: "/images/client/03.jpg",
       name: 'Jemina CLone',
@@ -369,7 +369,7 @@ export const blogData: Blog[] = [
     title: 'My Story When I Backpacked Around The World',
     desc: 'This is required when, for example, the final text is not yet available.',
     tag: 'Flight',
-    segment: "my-story-when-i-backpacked-around-the-world",
+    slug: "my-story-when-i-backpacked-around-the-world",
     author: {
       avatar: "/images/client/04.jpg",
       name: 'Smith Vodka',
@@ -383,7 +383,7 @@ export const blogData: Blog[] = [
     title: 'Organization of accounting at the enterprise',
     desc: 'This is required when, for example, the final text is not yet available.',
     tag: 'Arab',
-    segment: "organization-of-accounting-at-the-enterprise",
+    slug: "organization-of-accounting-at-the-enterprise",
     author: {
       avatar: "/images/client/05.jpg",
       name: 'Cristino Murfi',
@@ -397,7 +397,7 @@ export const blogData: Blog[] = [
     title: 'Three of the Best Day Trips to Make from Francisco',
     desc: 'This is required when, for example, the final text is not yet available.',
     tag: 'Dubai',
-    segment: "three-of-the-best-day-trips-to-make-from-francisco",
+    slug: "three-of-the-best-day-trips-to-make-from-francisco",
     author: {
       avatar: "/images/client/06.jpg",
       name: 'Cristino Murfi',
@@ -411,7 +411,7 @@ export const blogData: Blog[] = [
     title: 'Why Do People Travel ? Reasons People Travel in 2023',
     desc: 'This is required when, for example, the final text is not yet available.',
     tag: 'Maldivas',
-    segment: "why-do-people-travel-reasons-people-travel-in-2023",
+    slug: "why-do-people-travel-reasons-people-travel-in-2023",
     author: {
       avatar: "/images/client/01.jpg",
       name: 'Calvin Carlo',
@@ -425,7 +425,7 @@ export const blogData: Blog[] = [
     title: 'Jungles In Australia: Vermont’s Rugged, Retro Ski Mountain',
     desc: 'This is required when, for example, the final text is not yet available.',
     tag: 'News',
-    segment: "jungles-in-australia-vermont-s-rugged-retro-ski-mountain",
+    slug: "jungles-in-australia-vermont-s-rugged-retro-ski-mountain",
     author: {
       avatar: "/images/client/02.jpg",
       name: 'Christa Smith',
@@ -439,7 +439,7 @@ export const blogData: Blog[] = [
     title: 'Traveller Visiting Ice Cave With Amazing Eye-catching Scenes',
     desc: 'This is required when, for example, the final text is not yet available.',
     tag: 'Packages',
-    segment: "traveller-visiting-ice-cave-with-amazing-eye-catching-scenes",
+    slug: "traveller-visiting-ice-cave-with-amazing-eye-catching-scenes",
     author: {
       avatar: "/images/client/03.jpg",
       name: 'Jemina CLone',

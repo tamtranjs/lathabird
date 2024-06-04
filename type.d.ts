@@ -5,7 +5,7 @@ type Blog = {
   title: string,
   desc: string,
   tag: string,
-  segment: string,
+  slug: string,
   author: {
     name: string,
     role: string,

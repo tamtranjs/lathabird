@@ -5,9 +5,9 @@ export const getBlogData = async () => {
   return blogData;
 }
 
-export const getBlogDetail = async (segment: string) => {
+export const getBlogDetail = async (slug: string) => {
   await new Promise(resolve => setTimeout(resolve, 5000));
-  const blog = blogData.find(blog => blog.segment === segment);
+  const blog = blogData.find(blog => blog.slug === slug);
 
   if (blog) {
     return blog;
