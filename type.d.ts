@@ -12,3 +12,12 @@ type Blog = {
     avatar: string,
   }
 }
+
+type BlogPost = {
+  id: string,
+  title: string,
+  slug: string,
+  excerpt: string,
+  tag: string,
+  coverImage: string,
+}
