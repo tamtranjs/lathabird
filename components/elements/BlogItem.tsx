@@ -3,12 +3,12 @@ import Link from "next/link";
 import { FiChevronRight, FiClock } from "react-icons/fi";
 
 interface Props {
-  blogPost: BlogPost;
+  blogPost: any;
 }
 
 export default function BlogItem({ blogPost }: Props) {
 
-  const { coverImage, tag, slug, excerpt, title } = blogPost;
+  const { tag, slug, excerpt, title, coverImage } = blogPost;
 
   return (
     <div className="group relative overflow-hidden">

@@ -1,30 +1,15 @@
 import { cache } from "react";
-import { client } from "./client";
+import { getBlogObject } from "./getBlogPostDetail";
 
 export const getBlogPostList = cache(async() => {
 
-  const res = client.getEntries({
-    content_type: "blog",
-  });
+  const response = await fetch(`https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/master/entries?access_token=${process.env.CONTENTFUL_ACCESS_TOKEN}&content_type=blog`);
+  const data = await response.json();
   
-  const data = await res;
   if (data.items.length === 0) {
     return [];
+  } else {
+    return data.items.map((item: any) =>
+      getBlogObject(item, data.includes.Asset, data.includes.Entry));
   }
-
-  const blogPosts = data.items.map((item: any): BlogPost => {
-    const { id, title, slug, excerpt, tag, coverImage } = item.fields;
-    const coverImageUrl = `https://${coverImage.fields.file.url.slice(2)}`;
-    return {
-      id,
-      title,
-      slug,
-      excerpt,
-      tag,
-      coverImage: coverImageUrl,
-    }
-  })
-
-  return blogPosts;
-
 })

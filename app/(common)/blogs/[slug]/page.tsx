@@ -2,9 +2,9 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import { FaChevronRight } from "react-icons/fa";
 import BlogContent from "./components/BlogContent";
-import { getBlogDetail } from "@/lib/dataStore";
 import { Suspense } from "react";
 import BlogIntro from "./components/BlogIntro";
+import { getBlogPostDetail } from "@/lib/contentful/getBlogPostDetail";
 
 interface Props {
   params: {
@@ -16,10 +16,9 @@ export async function generateMetadata(
   { params: { slug }}: Props
 ): Promise<Metadata> {
 
-  const blogData: Promise<Blog | null> = getBlogDetail(slug);
-  const data = await blogData;
+  const blogPost = await getBlogPostDetail(slug);
 
-  if (!data) {
+  if (!blogPost) {
     return {
       title: 'Page Not Found',
       description: 'Could not find requested resource',
@@ -27,14 +26,14 @@ export async function generateMetadata(
   }
 
   return {
-    title: data.title,
-    description: data.title,
+    title: blogPost.title,
+    description: blogPost.title,
   }
 }
 
 export default async function BlogDetail({ params: { slug }}: Props) {
 
-  const blogData: Promise<Blog | null> = getBlogDetail(slug);
+  const blogPost: Promise<any> = getBlogPostDetail(slug);  
 
   return (
     <>
@@ -43,7 +42,7 @@ export default async function BlogDetail({ params: { slug }}: Props) {
         <div className="wrapper relative">
           <div className="grid grid-cols-1 pb-8 text-center mt-10">
             <Suspense fallback={<h1>...Loading</h1>}>
-              <BlogIntro blogData={blogData}/>
+              <BlogIntro blogPost={blogPost}/>
             </Suspense>
           </div>
         </div>
@@ -59,7 +58,9 @@ export default async function BlogDetail({ params: { slug }}: Props) {
       </section>
       <section className="relative md:py-24 py-16">
         <Suspense fallback={<div>Loading...</div>}>
-          <BlogContent blogData={blogData}/>
+          <BlogContent
+            blogPost={blogPost}
+          />
         </Suspense>
 
       </section>
