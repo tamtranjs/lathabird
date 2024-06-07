@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   description: "Blogs",
 }
 
-export const revalidate = 3600;
-
 export default async function Blogs() {
   return (
     <>
