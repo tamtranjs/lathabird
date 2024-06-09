@@ -2,24 +2,26 @@
 
 import Image from 'next/image';
 import Link from "next/link";
-import { HamburgerMenuIcon } from "@radix-ui/react-icons";
 import { useState, useEffect } from "react";
 import { FiMenu, FiX } from "react-icons/fi"
+import { FaAngleRight } from "react-icons/fa";
 
 import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
+  DropdownMenuGroup,
   DropdownMenuItem,
-  DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
+import { usePathname, useRouter } from "next/navigation";
+
 const menuItems = [
   {
     title: "Flights",
-    url: "/flights"
+    url: "/flights",
   },
   {
     title: "Hotels",
@@ -49,6 +51,9 @@ const menuItems = [
 
 export default function Header() {
 
+  const pathname = `/${usePathname().split("/")[1]}`;
+  const router = useRouter();
+ 
   const [isScrolled, setScrolled] = useState(false);
   const [isMenuOpen, setMenuOpen] = useState(false);
 
@@ -68,11 +73,17 @@ export default function Header() {
   const renderMenu = () => {
     return menuItems.map((item, index) => (
       <li key={index}>
-        <Link href={item.url} className={`${isScrolled ? "text-gray-950 hover:text-primary" : "text-white hover:text-primary"} font-medium`}>
+        <Link href={item.url}
+          className={
+            `font-medium ${pathname === item.url ? "text-primary" : isScrolled ? "text-gray-950" : "text-white"} hover:text-primary`}>
           {item.title}
         </Link>
       </li>
     ));
+  }
+
+  const onMenuClick = (url: string) => {
+    router.push(url)
   }
 
   const renderMenuMobile = () => {
@@ -83,14 +94,23 @@ export default function Header() {
             {isMenuOpen ? <FiX className="w-6 h-auto" /> : <FiMenu className="w-6 h-auto" />}
           </Button>
         </DropdownMenuTrigger>
-        <DropdownMenuContent side="bottom" align="end" className="w-screen">
+        <DropdownMenuContent side="bottom" align="end" className="wrapper w-screen sm:w-[640px] mt-3 p-0">
+          <DropdownMenuGroup>
           {
             menuItems.map((item, index) => (
-              <DropdownMenuItem key={index}>
-                <Link href={item.url}>{item.title}</Link>
-              </DropdownMenuItem>
+              <div key={index}>
+                <DropdownMenuItem
+                  className={`${pathname === item.url ? "text-primary" : ""} text-base hover:text-primary px-4 flex justify-between`}
+                  onClick={() => onMenuClick(item.url)}
+                >
+                  <span>{item.title}</span>
+                  <FaAngleRight className="w-4 h-auto" />
+                </DropdownMenuItem>
+                <DropdownMenuSeparator />
+              </div>
             ))
           }
+          </DropdownMenuGroup>
         </DropdownMenuContent>
       </DropdownMenu>
     )
@@ -98,7 +118,7 @@ export default function Header() {
 
   return (
     <header
-      className={`${isScrolled ? "bg-[#fffc]" : "bg-[#ffffff1a]"} header`}
+      className={`${isScrolled ? "bg-[#fffc]" : "bg-[#ffffff1a] max-[991px]:bg-[#fff]"} header `}
     >
       <div className="wrapper h-[74px] flex items-center wrapper">
         <div className="flex-1">
