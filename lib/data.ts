@@ -132,7 +132,7 @@ export const packages: Package[] = [
     tagText: '10% Off',
     place: 'Dubai',
     title: 'Cuba Sailing Adventure',
-    amount: '$ 58 / Day',
+    amount: '$58/day',
   },
   {
     id: 2,
@@ -447,3 +447,34 @@ export const blogData: Blog[] = [
     }
   },
 ]
+
+export const menuItems = [
+  {
+    title: "Flights",
+    url: "/flights",
+  },
+  {
+    title: "Hotels",
+    url: "/hotels"
+  },
+  {
+    title: "Tours",
+    url: "/tours"
+  },
+  {
+    title: "Visa",
+    url: "/visa"
+  },
+  {
+    title: "Alerts",
+    url: "/alerts"
+  },
+  {
+    title: "Blogs",
+    url: "/blogs"
+  },
+  {
+    title: "Travel Photos",
+    url: "/travel-photos"
+  }
+];

@@ -35,32 +35,37 @@ export default function ToursPackages() {
 
                 <div className="absolute top-0 end-0 p-4">
                   <Link href="#" className="size-8 inline-flex justify-center items-center bg-white dark:bg-slate-900 shadow dark:shadow-gray-800 rounded-full text-slate-100 dark:text-slate-700 focus:text-primary dark:focus:text-primary hover:text-primary dark:hover:text-primary">
-                    {/* <i className="mdi mdi-heart text-[20px] align-middle"></i> */}
                     <FaHeart className="text-[20px] align-middle"></FaHeart>
                   </Link>
                 </div>
               </div>
 
               <div className="p-3">
-                <p className="flex items-center text-slate-400 font-medium mb-2"><FiMapPin className="text-primary size-4 me-1"></FiMapPin> {item.place}</p>
+                <dl>
+                  <dt className="sr-only">Location</dt>
+                  <dd>
+                    <p className="flex items-center text-slate-400 font-medium mb-2">
+                      <FiMapPin className="text-primary size-4 me-1"></FiMapPin>
+                      {item.place}
+                    </p>
+                  </dd>
+                </dl>
+                
                 <Link href={`/tour-detail-one/${item.id}`} className="text-lg font-medium hover:text-primary duration-500 ease-in-out">{item.title}</Link>
 
-                <div className="flex items-center mt-2">
-                  <span className="text-slate-400">Rating:</span>
-                  <ul className="text-lg font-medium text-amber-400 list-none ms-2 space-x-1 flex flex-wrap">
-                    <li className="inline"><FaStar className="align-middle"></FaStar></li>
-                    <li className="inline"><FaStar className="align-middle"></FaStar></li>
-                    <li className="inline"><FaStar className="align-middle"></FaStar></li>
-                    <li className="inline"><FaStar className="align-middle"></FaStar></li>
-                    <li className="inline"><FaStar className="align-middle"></FaStar></li>
-                    <li className="inline text-black dark:text-white text-sm">5.0(30)</li>
-                  </ul>
-                </div>
+                <dl className="flex items-center mt-2">
+                  <dt className="sr-only">Rating</dt>
+                  <dd className="flex items-center dark:text-white text-sm">
+                    <FaStar className="align-middle mr-1 text-amber-400"></FaStar>
+                    <span className="text-sm">5.0 (30)</span>
+                  </dd>
+                </dl>
 
                 <div className="mt-3 pt-3 flex justify-between items-center border-t border-slate-100 dark:border-gray-800">
                   <h5 className="text-lg font-medium text-primary">{item.amount}</h5>
-
-                  <Link href="" className="text-slate-400 hover:text-primary flex items-center">Explore Now<FaArrowRight></FaArrowRight></Link>
+                  <Link href="" className="text-slate-400 hover:text-primary flex items-center">
+                    <span><FaArrowRight></FaArrowRight></span>
+                  </Link>
                 </div>
               </div>
             </div>

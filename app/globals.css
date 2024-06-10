@@ -18,7 +18,8 @@
     --primary: #1CC7D0;
     --primary-foreground: 210 40% 98%;
 
-    --secondary: 210 40% 96.1%;
+    /* --secondary: 210 40% 96.1%; */
+    --secondary: #F5811F;
     --secondary-foreground: 222.2 47.4% 11.2%;
 
     --muted: 210 40% 96.1%;
@@ -106,7 +107,7 @@
   .home-background {
     object-fit: fill;
     background-size: cover;
-    animation: changeBackground 10s infinite;
+    animation: changeBackground 20s infinite;
     
     /* @apply bg-[url('/images/1.jpg')] object-fill bg-cover; */
   }

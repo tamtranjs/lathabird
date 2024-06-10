@@ -1,5 +1,5 @@
 import { FiMapPin, FiMail, FiPhone } from "react-icons/fi";
-import { footerSocial, footerCompany } from "@/lib/data";
+import { footerSocial, menuItems } from "@/lib/data";
 
 import Link from "next/link";
 import Image from "next/image";
@@ -12,7 +12,7 @@ export default function Footer() {
           <div className="col-span-12">
             <div className="py-[60px] px-0">
               <div className="grid md:grid-cols-12 grid-cols-1 gap-6">
-                <div className="lg:col-span-3 md:col-span-12">
+                <div className="md:col-span-12 lg:col-span-4">
                   <Link href="#" className="text-[22px] focus:outline-none">
                     <Image
                       src={"/lathabird-logo.svg"} alt=""
@@ -33,7 +33,7 @@ export default function Footer() {
                   </ul>
                 </div>
 
-                <div className="lg:col-span-3 md:col-span-4">
+                {/* <div className="lg:col-span-3 md:col-span-4">
                   <div className="lg:ms-8">
                     <h5 className="tracking-[1px] text-gray-100 font-semibold">Office</h5>
                     <h5 className="tracking-[1px] text-gray-100 mt-6">Travosy Tour & Travels</h5>
@@ -59,22 +59,22 @@ export default function Footer() {
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> */}
 
-                <div className="lg:col-span-3 md:col-span-4">
+                <div className="md:col-span-6 lg:col-span-4">
                   <div className="lg:ms-8">
-                    <h5 className="tracking-[1px] text-gray-100 font-semibold">Company</h5>
+                    <h5 className="tracking-[1px] text-gray-100 font-semibold">Menu</h5>
                     <ul className="list-none footer-list mt-6">
-                      {footerCompany.map((item, index) => {
+                      {menuItems.map((item, index) => {
                         return (
-                          <li className="mt-[10px] first:mt-0" key={index}><Link href={item.link} className="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i className="mdi mdi-chevron-right"></i> {item.name}</Link></li>
+                          <li className="mt-[10px] first:mt-0" key={index}><Link href={item.url} className="text-gray-300 hover:text-gray-400 duration-500 ease-in-out"><i className="mdi mdi-chevron-right"></i> {item.title}</Link></li>
                         )
                       })}
                     </ul>
                   </div>
                 </div>
 
-                <div className="lg:col-span-3 md:col-span-4">
+                <div className="md:col-span-6 lg:col-span-4">
                   <h5 className="tracking-[1px] text-gray-100 font-semibold">Newsletter</h5>
                   <p className="mt-6">Sign up and receive the latest tips via email.</p>
                   <form>

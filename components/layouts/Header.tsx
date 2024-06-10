@@ -17,37 +17,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 
 import { usePathname, useRouter } from "next/navigation";
-
-const menuItems = [
-  {
-    title: "Flights",
-    url: "/flights",
-  },
-  {
-    title: "Hotels",
-    url: "/hotels"
-  },
-  {
-    title: "Tours",
-    url: "/tours"
-  },
-  {
-    title: "Visa",
-    url: "/visa"
-  },
-  {
-    title: "Alerts",
-    url: "/alerts"
-  },
-  {
-    title: "Blogs",
-    url: "/blogs"
-  },
-  {
-    title: "Travel Photos",
-    url: "/travel-photos"
-  }
-];
+import { menuItems } from "@/lib/data";
 
 export default function Header() {
 
