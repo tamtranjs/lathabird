@@ -478,3 +478,15 @@ export const menuItems = [
     url: "/travel-photos"
   }
 ];
+
+export const photos = [
+  "/images/listing/1.jpg",
+  "/images/listing/2.jpg",
+  "/images/listing/3.jpg",
+  "/images/listing/4.jpg",
+  "/images/listing/5.jpg",
+  "/images/listing/6.jpg",
+  "/images/listing/7.jpg",
+  "/images/listing/8.jpg",
+  "/images/listing/9.jpg",
+]

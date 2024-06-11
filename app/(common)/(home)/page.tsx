@@ -6,6 +6,7 @@ import SearchForm from "@/components/elements/SearchBox/SearchForm";
 import Destinations from "./components/Destinations";
 import ToursPackages from "./components/ToursPackages";
 import { Clients } from "./components/Clients";
+import PhotosCarousel from "./components/PhotosCarousel";
 
 export default async function Home() {
   return (
@@ -28,6 +29,7 @@ export default async function Home() {
         <Destinations />
         <ToursPackages />
         <Clients />
+        <PhotosCarousel />
       </section>
     </>
   );
