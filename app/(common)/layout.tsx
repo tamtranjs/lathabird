@@ -1,5 +1,6 @@
 import Header from "@/components/layouts/Header";
 import Footer from "@/components/layouts/Footer";
+import BackToTop from "@/components/elements/BackToTop";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -8,7 +9,8 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
       <main className="flex-1">
         {children}
       </main>
-      <Footer/>    
+      <Footer/>   
+      <BackToTop/> 
     </main>
   );
 };

@@ -88,7 +88,7 @@ export default function Header() {
 
   return (
     <header
-      className={`${isScrolled ? "bg-[#fffc]" : "bg-[#ffffff1a] max-[991px]:bg-[#fff]"} header `}
+      className={`${isScrolled ? "bg-[#fffc]" : "bg-[#ffffff1a] max-[991px]:bg-[#fff]"} header`}
     >
       <div className="wrapper h-[74px] flex items-center wrapper">
         <div className="flex-1">

@@ -18,6 +18,11 @@
     --primary: #1CC7D0;
     --primary-foreground: 210 40% 98%;
 
+    --palette1: #FFF7D6;
+    --palette2: #F8F9FF;
+    --palette3: #E6FEFF;
+    --palette4: #E6F4F1;
+
     /* --secondary: 210 40% 96.1%; */
     --secondary: #F5811F;
     --secondary-foreground: 222.2 47.4% 11.2%;
@@ -88,7 +93,7 @@
             box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow) !important;
   }
   .header {
-    @apply w-full fixed top-0 z-50;
+    @apply w-full fixed top-0 z-50 shadow;
     backdrop-filter: blur(10px);
   }
 }
