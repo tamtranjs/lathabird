@@ -1,12 +1,14 @@
 import { getBlogObject } from "./getBlogPostDetail";
-import { entriesUrl } from "@/lib/const";
+import { ENTRIES_URL } from "@/lib/const";
 
 export const getBlogPostList = async (blogType: string) => {
   let response: Response;
   if (blogType === "all") {
-    response = await fetch(entriesUrl);
+    response = await fetch(ENTRIES_URL, { next: { revalidate: 60 } });
   } else {
-    response = await fetch(entriesUrl + `&fields.blogType=${blogType}`);
+    response = await fetch(ENTRIES_URL + `&fields.blogType=${blogType}`, {
+      next: { revalidate: 60 },
+    });
   }
 
   const data = await response.json();

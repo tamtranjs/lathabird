@@ -5,7 +5,7 @@ interface Props {
 export default async function BlogIntro({ blogPost }: Props) {
 
   const data = await blogPost;
-  const { title, author, date } = data;
+  const { title, author, date, timeToRead } = data;
 
   return (
     <div>
@@ -13,7 +13,7 @@ export default async function BlogIntro({ blogPost }: Props) {
         <ul className="list-none mt-6">
           <li className="inline-block text-white/50 mx-5"> <span className="text-white block">Author :</span> <span className="block">{author.name}</span></li>
           <li className="inline-block text-white/50 mx-5"> <span className="text-white block">Date :</span> <span className="block">{date}</span></li>
-          <li className="inline-block text-white/50 mx-5"> <span className="text-white block">Time :</span> <span className="block">8 Min Read</span></li>
+          <li className="inline-block text-white/50 mx-5"> <span className="text-white block">Time :</span> <span className="block">{timeToRead ? `${timeToRead} Min Read`: "5 Min Read"}</span></li>
         </ul>
     </div>
   )

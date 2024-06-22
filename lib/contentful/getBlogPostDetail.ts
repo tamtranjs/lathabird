@@ -1,8 +1,8 @@
 import moment from "moment";
-import { entriesUrl } from "@/lib/const";
+import { ENTRIES_URL } from "@/lib/const";
 
 export const getBlogPostDetail = async (slug: string) => {
-  const response = await fetch(entriesUrl + `&fields.slug=${slug}`, {
+  const response = await fetch(ENTRIES_URL + `&fields.slug=${slug}`, {
     next: { revalidate: 60 },
   });
   const data = await response.json();
@@ -19,8 +19,17 @@ export const getBlogPostDetail = async (slug: string) => {
 };
 
 export const getBlogObject = (item: any, assets: any, entries: any) => {
-  const { title, slug, excerpt, date, tag, content, author, blogType } =
-    item.fields;
+  const {
+    title,
+    slug,
+    excerpt,
+    date,
+    tag,
+    content,
+    author,
+    blogType,
+    timeToRead,
+  } = item.fields;
 
   const formatDate = moment(date).format("Do MMMM YYYY");
 
@@ -58,5 +67,6 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
     },
     content,
     blogType,
+    timeToRead,
   };
 };

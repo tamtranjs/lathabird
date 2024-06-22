@@ -17,7 +17,7 @@ export default function Tours() {
         name="Tours"
       />
       <section className="relative md:py-24 py-16">
-        <Suspense fallback={<h2>Loading ...</h2>}>
+        <Suspense fallback={<h2 className="text-center">Loading ...</h2>}>
           <TourGrid />
         </Suspense>
       </section>
