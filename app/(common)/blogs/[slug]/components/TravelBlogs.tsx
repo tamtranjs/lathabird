@@ -3,7 +3,7 @@ import { getBlogPostList } from "@/lib/contentful/getBlogPostList";
 
 export default async function TravelBlogs() {
 
-  const blogData = await getBlogPostList();
+  const blogData = await getBlogPostList("all");
 
   return (
     <div className="relative md:mt-24 mt-16">

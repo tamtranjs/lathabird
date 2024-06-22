@@ -1,9 +1,9 @@
 import BlogItem from "@/components/elements/BlogItem";
 import { getBlogPostList } from "@/lib/contentful/getBlogPostList";
 
-export default async function BlogGrid() {
+export default async function FlightGrid() {
 
-  const blogPosts = await getBlogPostList("all");
+  const blogPosts = await getBlogPostList("flight");
 
   return (
     <div className="wrapper relative">

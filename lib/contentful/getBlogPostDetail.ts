@@ -1,12 +1,10 @@
 import moment from "moment";
+import { entriesUrl } from "@/lib/const";
 
 export const getBlogPostDetail = async (slug: string) => {
-  const response = await fetch(
-    `https://cdn.contentful.com/spaces/${process.env.CONTENTFUL_SPACE_ID}/environments/${process.env.CONTENTFUL_ENVIRONMENT}/entries?access_token=${process.env.CONTENTFUL_ACCESS_TOKEN}&content_type=blog&fields.slug=${slug}`,
-    {
-      next: { revalidate: 60 },
-    }
-  );
+  const response = await fetch(entriesUrl + `&fields.slug=${slug}`, {
+    next: { revalidate: 60 },
+  });
   const data = await response.json();
 
   if (data.items.length === 0) {
@@ -21,8 +19,8 @@ export const getBlogPostDetail = async (slug: string) => {
 };
 
 export const getBlogObject = (item: any, assets: any, entries: any) => {
-
-  const { title, slug, excerpt, date, tag, content, author } = item.fields;
+  const { title, slug, excerpt, date, tag, content, author, blogType } =
+    item.fields;
 
   const formatDate = moment(date).format("Do MMMM YYYY");
 
@@ -59,5 +57,6 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
       avatar,
     },
     content,
-  }
-}
+    blogType,
+  };
+};

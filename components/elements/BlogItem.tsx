@@ -20,7 +20,7 @@ export default function BlogItem({ blogPost }: Props) {
           height={800}
         />
         <div className="absolute top-0 start-0 p-4 opacity-0 group-hover:opacity-100 duration-500">
-          <span className="bg-red-500 text-white text-[12px] px-2.5 py-1 font-medium rounded-md h-5">{tag}</span>
+          {tag && <span className="bg-red-500 text-white text-[12px] px-2.5 py-1 font-medium rounded-md h-5">{tag}</span>}
         </div>
       </div>
 

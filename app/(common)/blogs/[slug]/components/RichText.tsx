@@ -16,9 +16,10 @@ const options = {
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => <Text>{children}</Text>,
     [BLOCKS.HEADING_2]: (node: any, children: any) => <h2 className="text-2xl font-bold text-slate-900">{children}</h2>,
     [BLOCKS.QUOTE]: (node: any, children: any) => <blockquote className="text-slate-400 italic border-x-4 border-primary rounded-ss-xl rounded-ee-xl mt-3 p-3">{children}</blockquote>,
-    [INLINES.HYPERLINK]: (node: any, children: any) => <a href={children} target="_blank" className="text-primary">{children}</a>
+    [INLINES.HYPERLINK]: (node: any, children: any) => <a href={node.data.uri} target="_blank" className="text-primary">{children}</a>
   },
-  // renderText: (text: any) => text.replace('!', '?'),
+  // renderText: (text: any) => text.replace('br', 'xxx'),
+  preserveWhitespace: true
 };
 
 export default function RichText({ content }: Props) {
