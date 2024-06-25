@@ -43,11 +43,19 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
     }
   });
 
-  let coverImage = "";
+  let coverImage = {
+    url: "",
+    width: 0,
+    height: 0,
+    fileName: "",
+  };
   let avatar = "";
   assets.forEach((asset: any) => {
     if (asset.sys.id === item.fields.coverImage.sys.id) {
-      coverImage = `https://${asset.fields.file.url.slice(2)}`;
+      coverImage.url = `https://${asset.fields.file.url.slice(2)}`;
+      coverImage.width = asset.fields.file.details.image.width;
+      coverImage.height = asset.fields.file.details.image.height;
+      coverImage.fileName = asset.fields.file.fileName;
     }
     if (asset.sys.id === avatarId) {
       avatar = `https://${asset.fields.file.url.slice(2)}`;

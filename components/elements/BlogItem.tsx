@@ -14,10 +14,11 @@ export default function BlogItem({ blogPost }: Props) {
     <div className="group relative overflow-hidden">
       <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-800">
         <Image
-          src={coverImage}
-          className="group-hover:scale-110 group-hover:rotate-3 duration-500" alt=""
-          width={1200}
-          height={800}
+          src={coverImage.url}
+          className="group-hover:scale-110 group-hover:rotate-3 duration-500 h-52 object-cover"
+          width={coverImage.width}
+          height={coverImage.height}
+          alt={coverImage.fileName}
         />
         <div className="absolute top-0 start-0 p-4 opacity-0 group-hover:opacity-100 duration-500">
           {tag && <span className="bg-red-500 text-white text-[12px] px-2.5 py-1 font-medium rounded-md h-5">{tag}</span>}
