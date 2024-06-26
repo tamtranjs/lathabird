@@ -28,7 +28,6 @@ export default function DynamicList(props: Props) {
       setDisplayList(filteredList.slice(0, 5));      
     }
   }, [typingWord, selectedList, sourceList]);
-  
 
   const onSelectCity = (city: SearchItem) => {
     props.onSelect(city.name);

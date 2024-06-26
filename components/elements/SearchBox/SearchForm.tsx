@@ -28,7 +28,6 @@ export default function SearchForm() {
   })
 
   const onSubmit = async (data: FieldValues) => {
-    console.log(data);
     await new Promise((resolve) => setTimeout(resolve, 1000));
   }
 

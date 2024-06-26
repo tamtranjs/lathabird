@@ -23,6 +23,7 @@ export default async function BlogContent(props: Props) {
               alt={coverImage.fileName}
               width={coverImage.width}
               height={coverImage.height}
+              priority
             />
             <div className="p-6 space-y-3">
               <RichText content={blogPost.content} />
