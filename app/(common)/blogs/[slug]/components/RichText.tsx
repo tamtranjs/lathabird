@@ -1,22 +1,27 @@
-import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
+import { FiArrowRight} from "react-icons/fi";
 
 interface Props {
   content: any;
 }
 
-const Bold = ({ children }: any) => <p className="bold">{children}</p>;
-const Text = ({ children }: any) => <p className="text-slate-400">{children}</p>;
+const Bold = ({ children }: any) => <strong className="">{children}</strong>;
+const Text = ({ children }: any) => <p className="">{children}</p>;
 
 const options = {
   renderMark: {
-    // [MARKS.BOLD]: (text: any) => <Bold>{text}</Bold>,
+    [MARKS.BOLD]: (text: any) => <Bold>{text}</Bold>,
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => <Text>{children}</Text>,
-    [BLOCKS.HEADING_2]: (node: any, children: any) => <h2 className="text-2xl font-bold text-slate-900">{children}</h2>,
+    [BLOCKS.HEADING_2]: (node: any, children: any) => <h2 className="text-secondary">{children}</h2>,
     [BLOCKS.QUOTE]: (node: any, children: any) => <blockquote className="text-slate-400 italic border-x-4 border-primary rounded-ss-xl rounded-ee-xl mt-3 p-3">{children}</blockquote>,
-    [INLINES.HYPERLINK]: (node: any, children: any) => <a href={node.data.uri} target="_blank" className="text-primary">{children}</a>
+    [INLINES.HYPERLINK]: (node: any, children: any) => <>
+      <FiArrowRight className="inline-block mr-1 text-primary" />
+      <a href={node.data.uri} target="_blank" className="text-primary">{children}</a>
+    </>
+    
   },
   // renderText: (text: any) => text.replace('br', 'xxx'),
   preserveWhitespace: true
