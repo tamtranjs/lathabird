@@ -6,7 +6,12 @@ export async function getCityById(id: string) {
   return await getCity(id);
 }
 
-export async function getCitiesBySearch(text: string) {
-  if (text.length < 3) return [];
-  return await getCities(text);
+export async function getCitiesBySearch(text: string): Promise<WorldCity[]> {
+  if (text.length < 2) return [];
+  const res = await getCities(text);
+  if (res.ok) {
+    return res.data;
+  } else {
+    return [];
+  }
 }

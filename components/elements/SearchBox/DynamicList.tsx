@@ -1,47 +1,52 @@
 
-import { useState, useEffect } from "react";
+import { getCitiesBySearch } from "@/actions/worldCities";
+import { useState, useEffect, useRef } from "react";
+import { debounce } from "lodash";
 
 interface Props {
   typingWord: string;
   selectedList: string[];
   onSelect: (name: string) => void;
-  sourceList: SearchItem[];
 }
 
 export default function DynamicList(props: Props) {
 
-  const { typingWord, selectedList, sourceList } = props;
-  const [displayList, setDisplayList] = useState<SearchItem[]>([]);
+  const { typingWord, selectedList } = props;
+  const [displayList, setDisplayList] = useState<WorldCity[]>([]);
   
-  useEffect(() => {
-    if (typingWord === "") {
-      setDisplayList([]);
-      return;
+  const debouncedSearch = useRef(debounce((value: string) => {
+    if (value.length > 1) {
+      const fetchData = async () => {
+        const sourceList: WorldCity[] = await getCitiesBySearch(value);
+        setDisplayList(sourceList.slice(0, 10));  
+      }
+      fetchData();
     } else {
-      const filteredList = sourceList.filter((city: SearchItem) => {
-        return city.name.toLowerCase().includes(typingWord.toLowerCase());
-      })
-      .filter((city: SearchItem) => {
-        return !selectedList.includes(city.name);
-      });
-
-      setDisplayList(filteredList.slice(0, 5));      
+      setDisplayList([]);
     }
-  }, [typingWord, selectedList, sourceList]);
+  }, 300)).current;
 
-  const onSelectCity = (city: SearchItem) => {
-    props.onSelect(city.name);
+  useEffect(() => {
+    debouncedSearch(typingWord);
+  }, [typingWord, debouncedSearch]);
+
+  const onSelectCity = (item: WorldCity) => {
+    if (selectedList.includes(item.city)) {
+      props.onSelect("");
+    } else {
+      props.onSelect(item.city);
+    }
   }
 
   return (
     <ul className="flex flex-col space-y-1">  
-      {displayList.map((city: SearchItem, index: number) => (
+      {displayList.map((item: WorldCity, index: number) => (
         <li
           key={index}
           className="h-10 flex items-center gap-1 hover:bg-blue-300 justify-center p-1 cursor-pointer"
-          onClick={() => onSelectCity(city)}
+          onClick={() => onSelectCity(item)}
         >
-          <span className="text-sm">{city.name}</span>
+          <span className="text-sm">{item.city}</span>
         </li>
       ))}
     </ul>

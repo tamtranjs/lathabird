@@ -1,25 +1,47 @@
 import prisma from ".";
 
-export async function getCities(text: string) {
+export async function getCities(
+  text: string
+): Promise<{ ok: boolean; data: WorldCity[]; error?: any }> {
   try {
-    const cities = await prisma.world_cities.findMany({
+    const cities: WorldCity[] = await prisma.world_cities.findMany({
       take: 10,
       select: {
         city: true,
         country: true,
       },
       where: {
-        city: {
-          contains: text,
-        },
+        OR: [
+          {
+            city: {
+              contains: text,
+              mode: "insensitive",
+            },
+          },
+          {
+            city_ascii: {
+              contains: text,
+              mode: "insensitive",
+            },
+          },
+        ],
       },
     });
 
     prisma.$disconnect();
-    return cities;
+
+    return {
+      ok: true,
+      data: cities,
+    };
   } catch (error) {
     prisma.$disconnect();
-    return error;
+
+    return {
+      ok: false,
+      data: [],
+      error: error,
+    };
   }
 }
 

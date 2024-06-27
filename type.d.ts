@@ -1,23 +1,28 @@
 type Blog = {
-  id: number,
-  image: string,
-  date: string,
-  title: string,
-  desc: string,
-  tag: string,
-  slug: string,
+  id: number;
+  image: string;
+  date: string;
+  title: string;
+  desc: string;
+  tag: string;
+  slug: string;
   author: {
-    name: string,
-    role: string,
-    avatar: string,
-  }
-}
+    name: string;
+    role: string;
+    avatar: string;
+  };
+};
 
 type BlogPost = {
-  id: string,
-  title: string,
-  slug: string,
-  excerpt: string,
-  tag: string,
-  coverImage: string,
-}
+  id: string;
+  title: string;
+  slug: string;
+  excerpt: string;
+  tag: string;
+  coverImage: string;
+};
+
+type WorldCity = {
+  city: string;
+  country: string;
+};

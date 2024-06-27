@@ -1,33 +1,28 @@
 import DropdownContent from "@/components/ui/Custom/DropdownContent";
 import InputSearch from "./InputSearch";
 import DynamicList from "./DynamicList";
-import StaticList from "./StaticList";
 import { useEffect, useState } from "react";
 
 interface Props {
   placeholder?: string;
   onChange: (values: string) => void;
-  sourceList: SearchItem[] | WorldCity[];
-  dataType?: string;
 }
 
-export default function SearchBox(props: Props) {
+export default function SearchCitiesBox(props: Props) {
 
-  const { sourceList, onChange, dataType = "dynamic" } = props;
+  const { onChange } = props;
   const [isOpen, setIsOpen] = useState(false);
 
   const [inputValue, setInputValue] = useState("");
   const [tagList, setTagList] = useState<string[]>([]);
 
   useEffect(() => {
-    if (dataType === "dynamic") {
-      if (inputValue === "") {
-        setIsOpen(false);
-      } else {
-        setIsOpen(true);
-      }
+    if (inputValue === "") {
+      setIsOpen(false);
+    } else {
+      setIsOpen(true);
     }
-  }, [inputValue, dataType]);
+  }, [inputValue]);
 
   useEffect(() => {
     if (tagList.length === 0) {
@@ -37,7 +32,7 @@ export default function SearchBox(props: Props) {
       onChange && onChange(tagList.join(","));
     }
   }, [tagList, onChange]);
-
+  
   return (
     <DropdownContent
       label={
@@ -52,32 +47,21 @@ export default function SearchBox(props: Props) {
       isOpen={isOpen}
       setIsOpen={setIsOpen}
       onClickOutSide={() => {setInputValue("")}}
-      dataType={dataType}
-    >
-      { dataType === "static" && (
-        <StaticList
-          typingWord={inputValue}
-          selectedList={tagList}
-          onSelect={(name: string) => {
+      dataType={"dynamic"}
+    >  
+      <DynamicList
+        typingWord={inputValue}
+        selectedList={tagList}
+        onSelect={(name: string) => {
+          if (name === "") {
+            setInputValue("");
+            return;
+          } else {
             setTagList([...tagList, name]);
             setInputValue("");
-          }}
-          sourceList={sourceList as SearchItem[]}
-        />
-      )}
-      {/* {
-        dataType === "dynamic" && (
-          <DynamicList
-            typingWord={inputValue}
-            selectedList={tagList}
-            onSelect={(name: string) => {
-              setTagList([...tagList, name]);
-              setInputValue("");
-            }}
-            sourceList={sourceList as WorldCity[]}
-          />
-        )
-      } */}
+          }
+        }}
+      /> 
     </DropdownContent>
   )
 }

@@ -6,7 +6,7 @@ import type { FieldValues } from "react-hook-form";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 import SearchBox from "@/components/elements/SearchBox/SearchBox";
-import { CityList } from "@/lib/data";
+import SearchCitiesBox from "./SearchCitiesBox";
 import { generateMonthYearList } from "@/lib/utils";
 
 export default function SearchForm() {
@@ -46,10 +46,9 @@ export default function SearchForm() {
             })}
           />
           <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
-            <SearchBox
+            <SearchCitiesBox
               placeholder="City/Country"
               onChange={(value: string) => {setValue("fromPlace", value)}}
-              sourceList={CityList}
             />
           </div>
           {errors.fromPlace && <p className="text-red-500 mt-2">{`${errors.fromPlace.message}`}</p>}
@@ -64,10 +63,9 @@ export default function SearchForm() {
             {...register("toPlace")}
           />
           <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
-            <SearchBox
+            <SearchCitiesBox
               placeholder="Anywhere"
-              onChange={(value: string) => {setValue("toPlace", value)}}
-              sourceList={CityList}
+              onChange={(value: string) => {setValue("toPlace", value)}}  
             />
           </div>
         </div>
