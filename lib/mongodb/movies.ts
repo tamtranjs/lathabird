@@ -1,6 +1,6 @@
 import client from "./client";
 
-export default async function getMovies(query: string) {
+export async function getMovies(query: string) {
   try {
     await client.connect();
     // set namespace

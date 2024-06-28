@@ -11,7 +11,7 @@ const Text = ({ children }: any) => <p className="">{children}</p>;
 
 const options = {
   renderMark: {
-    [MARKS.BOLD]: (text: any) => <Bold>{text}</Bold>,
+    [MARKS.BOLD]: (text: any) => <Bold key={`${text}-key`}>{text}</Bold>
   },
   renderNode: {
     [BLOCKS.PARAGRAPH]: (node: any, children: any) => <Text>{children}</Text>,
@@ -21,7 +21,6 @@ const options = {
       <FiArrowRight className="inline-block mr-1 text-primary" />
       <a href={node.data.uri} target="_blank" className="text-primary">{children}</a>
     </>
-    
   },
   // renderText: (text: any) => text.replace('br', 'xxx'),
   preserveWhitespace: true

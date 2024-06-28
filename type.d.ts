@@ -23,6 +23,7 @@ type BlogPost = {
 };
 
 type WorldCity = {
+  id?: string;
   city: string;
   country: string;
 };
