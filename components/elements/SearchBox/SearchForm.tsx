@@ -5,7 +5,7 @@ import type { FieldValues } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import SearchBox from "@/components/elements/SearchBox/SearchBox";
+import SearchDateBox from "@/components/elements/SearchBox/SearchDateBox";
 import SearchCitiesBox from "./SearchCitiesBox";
 import { generateMonthYearList } from "@/lib/utils";
 
@@ -79,11 +79,10 @@ export default function SearchForm() {
             {...register("monthYear")}
           />
           <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
-            <SearchBox
+            <SearchDateBox
               placeholder="All upcoming months"
               onChange={(value: string) => {setValue("monthYear", value)}}
               sourceList={generateMonthYearList()}
-              dataType="static"
             />
           </div>
         </div>

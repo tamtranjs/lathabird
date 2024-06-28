@@ -17,7 +17,7 @@ export async function getCities(query: string) {
           },
         },
       },
-      { $limit: 20 },
+      { $limit: 10 },
       { $project: { _id: 1, city: 1, country: 1 } },
     ];
 
