@@ -2,8 +2,6 @@ import client from "./client";
 
 export async function getCities(query: string) {
   try {
-    await client.connect();
-
     const database = client.db("lathabird");
     const coll = database.collection("world_cities");
 
@@ -14,6 +12,10 @@ export async function getCities(query: string) {
           autocomplete: {
             query: query,
             path: "city",
+            fuzzy: {
+              maxEdits: 2,
+              prefixLength: 3,
+            },
           },
         },
       },
@@ -23,12 +25,14 @@ export async function getCities(query: string) {
 
     const result = await coll.aggregate(agg);
 
-    const data = (await result.toArray()).map((doc) => {
-      return {
+    const data: WorldCity[] = [];
+    await result.forEach((doc) => {
+      console.log(doc);
+      data.push({
         id: doc._id.toString() as string,
         city: doc.city as string,
         country: doc.country as string,
-      };
+      });
     });
 
     return {
@@ -41,7 +45,5 @@ export async function getCities(query: string) {
       error: error,
       data: [],
     };
-  } finally {
-    await client.close();
   }
 }
