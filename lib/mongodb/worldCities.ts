@@ -27,7 +27,6 @@ export async function getCities(query: string) {
 
     const data: WorldCity[] = [];
     await result.forEach((doc) => {
-      console.log(doc);
       data.push({
         id: doc._id.toString() as string,
         city: doc.city as string,
