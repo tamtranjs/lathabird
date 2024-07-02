@@ -1,6 +1,7 @@
 "use server";
 
 import { getEntriesUrl } from "@/lib/const";
+import { removeDuplicates, checkIfAllDatesArePast } from "@/lib/utils";
 
 const getMatchingBlogs = async (cityList: string[], field: string) => {
   const response = await Promise.all(
@@ -20,31 +21,21 @@ const getMatchingBlogs = async (cityList: string[], field: string) => {
   );
 };
 
-const removeDuplicates = (blogs: any) => {
-  const uniqueBlogs: any = [];
-  const ids = new Set();
-
-  blogs.forEach((blog: any) => {
-    if (!ids.has(blog.id)) {
-      ids.add(blog.id);
-      uniqueBlogs.push(blog);
-    }
-  });
-
-  return uniqueBlogs;
-};
-
-export const getBlogs = async (fromList: string[], toList: string[]) => {
+export const getBlogs = async (
+  fromList: string[],
+  toList: string[],
+  dateList: string[],
+  showDealPast: boolean = true
+) => {
   const fromBlogs = await getMatchingBlogs(fromList, "depart");
-
   console.log("fromBlogs", fromBlogs);
   console.log("====================================");
+
   const toBlogs = await getMatchingBlogs(toList, "arrive");
-  console.log("====================================");
   console.log("toBlogs", toBlogs);
+  console.log("====================================");
 
   let matchingBlogs = [];
-
   if (fromList.length > 0 && toList.length === 0) {
     matchingBlogs = fromBlogs;
   } else if (fromList.length === 0 && toList.length > 0) {
@@ -54,9 +45,27 @@ export const getBlogs = async (fromList: string[], toList: string[]) => {
       return toBlogs.some((toBlog) => toBlog.id === fromBlog.id);
     });
   }
-
-  console.log("matchingBlogs", removeDuplicates(matchingBlogs));
+  console.log("matchingBlogs", matchingBlogs);
   console.log("====================================");
+
+  let datesBlogs = [];
+  if (dateList.length > 0) {
+    datesBlogs = await getMatchingBlogs(dateList, "dates");
+  }
+
+  if (datesBlogs.length > 0) {
+    matchingBlogs = matchingBlogs.filter((blog) => {
+      return datesBlogs.some((dateBlog) => dateBlog.id === blog.id);
+    });
+  }
+
+  if (!showDealPast) {
+    matchingBlogs = matchingBlogs.filter((blog) => {
+      return !checkIfAllDatesArePast(blog.dates);
+    });
+  }
+
+  return removeDuplicates(matchingBlogs);
 };
 
 export const getTests = async (from: string) => {
