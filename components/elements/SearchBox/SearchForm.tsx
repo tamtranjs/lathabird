@@ -8,8 +8,11 @@ import { Checkbox } from "@/components/ui/checkbox";
 import SearchDateBox from "@/components/elements/SearchBox/SearchDateBox";
 import SearchCitiesBox from "./SearchCitiesBox";
 import { generateMonthYearList } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 export default function SearchForm() {
+
+  const router = useRouter();
 
   const {
     register,
@@ -28,7 +31,11 @@ export default function SearchForm() {
   })
 
   const onSubmit = async (data: FieldValues) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    const { fromPlace, toPlace, monthYear, showPastDeal } = data;
+    if (!fromPlace && !toPlace) {
+      return;
+    }
+    router.push(`/search?fromPlace=${fromPlace}&toPlace=${toPlace}&monthYear=${monthYear}&showPastDeal=${showPastDeal}`)
   }
 
   return (
@@ -41,9 +48,7 @@ export default function SearchForm() {
           <input
             type="text"
             className="hidden"
-            {...register("fromPlace", {
-              required: "From places is required",
-            })}
+            {...register("fromPlace")}
           />
           <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
             <SearchCitiesBox

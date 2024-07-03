@@ -14,7 +14,7 @@ export async function getCities(query: string) {
             path: "city",
             fuzzy: {
               maxEdits: 2,
-              prefixLength: 3,
+              prefixLength: 6,
             },
           },
         },
