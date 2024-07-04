@@ -2,6 +2,7 @@
 
 import { getEntriesUrl } from "@/lib/const";
 import { removeDuplicates, checkIfAllDatesArePast } from "@/lib/utils";
+import { getBlogObject } from "./utils";
 
 const getMatchingBlogs = async (cityList: string[], field: string) => {
   const response = await Promise.all(
@@ -10,13 +11,12 @@ const getMatchingBlogs = async (cityList: string[], field: string) => {
     )
   );
 
-  const data = await Promise.all(response.map((res) => res.json()));
-  return data.flatMap((item: any) =>
-    item.items.map((item: any) => {
-      return {
-        id: item.sys.id,
-        ...item.fields,
-      };
+  const dataRes = await Promise.all(response.map((res) => res.json()));
+  return dataRes.flatMap((data: any) =>
+    data.items.map((item: any) => {
+      const assets = data.includes.Asset;
+      const entries = data.includes.Entry;
+      return getBlogObject(item, assets, entries);
     })
   );
 };
@@ -54,8 +54,8 @@ export const findMatchingBlogs = async (
 
   if (!showDealPast) {
     matchingBlogs = matchingBlogs.filter((blog) => {
-      if (blog.dates) {
-        return !checkIfAllDatesArePast(blog.dates);
+      if (blog.availableDates) {
+        return !checkIfAllDatesArePast(blog.availableDates);
       } else {
         return false;
       }
