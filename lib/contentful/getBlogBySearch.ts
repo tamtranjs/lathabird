@@ -5,20 +5,25 @@ import { removeDuplicates, checkIfAllDatesArePast } from "@/lib/utils";
 import { getBlogObject } from "./utils";
 
 const getMatchingBlogs = async (cityList: string[], field: string) => {
-  const response = await Promise.all(
-    cityList.map((city) =>
-      fetch(getEntriesUrl("blog") + `&fields.${field}[match]=${city}`)
-    )
-  );
+  try {
+    const response = await Promise.all(
+      cityList.map((city) =>
+        fetch(getEntriesUrl("blog") + `&fields.${field}[match]=${city}`)
+      )
+    );
 
-  const dataRes = await Promise.all(response.map((res) => res.json()));
-  return dataRes.flatMap((data: any) =>
-    data.items.map((item: any) => {
-      const assets = data.includes.Asset;
-      const entries = data.includes.Entry;
-      return getBlogObject(item, assets, entries);
-    })
-  );
+    const dataRes = await Promise.all(response.map((res) => res.json()));
+    return dataRes.flatMap((data: any) =>
+      data.items.map((item: any) => {
+        const assets = data.includes.Asset;
+        const entries = data.includes.Entry;
+        return getBlogObject(item, assets, entries);
+      })
+    );
+  } catch (error) {
+    console.log("Error in getMatchingBlogs", error);
+    return [];
+  }
 };
 
 export const findMatchingBlogs = async (
@@ -41,15 +46,15 @@ export const findMatchingBlogs = async (
     });
   }
 
-  let datesBlogs = [];
   if (dateList.length > 0) {
-    datesBlogs = await getMatchingBlogs(dateList, "availableDates");
-  }
-
-  if (datesBlogs.length > 0) {
-    matchingBlogs = matchingBlogs.filter((blog) => {
-      return datesBlogs.some((dateBlog) => dateBlog.id === blog.id);
-    });
+    const datesBlogs = await getMatchingBlogs(dateList, "availableDates");
+    if (datesBlogs.length > 0) {
+      matchingBlogs = matchingBlogs.filter((blog) => {
+        return datesBlogs.some((dateBlog) => dateBlog.id === blog.id);
+      });
+    } else {
+      matchingBlogs = [];
+    }
   }
 
   if (!showDealPast) {

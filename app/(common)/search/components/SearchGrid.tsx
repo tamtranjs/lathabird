@@ -31,7 +31,6 @@ export default function SearchGrid() {
           showPastDeal
         );
         setBlogPosts(blogs);
-        console.log("blogs", blogs);  
       } catch (error) {
         console.log("Failed to fetch blogs: ", error);
       }
