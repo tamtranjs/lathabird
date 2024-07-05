@@ -46,3 +46,15 @@ export async function getCities(query: string) {
     };
   }
 }
+
+export const warmUpDatabase = async () => {
+  try {
+    const database = client.db("lathabird");
+    const coll = database.collection("world_cities");
+
+    await coll.findOne({ city: "Vietnam" });
+    console.log("Database warmed up");
+  } catch (error) {
+    console.error("Error during database warm-up:", error);
+  }
+};

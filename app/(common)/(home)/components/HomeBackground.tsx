@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import SearchForm from "@/components/elements/SearchBox/SearchForm";
+import { runWarmUpDatabase } from "@/actions/mongo.worldCities";
 
 const images = [
   "/images/1.jpg",
@@ -19,6 +20,10 @@ export default function HomeBackground() {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
     }, 5000);
     return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    runWarmUpDatabase();
   }, []);
 
   return (

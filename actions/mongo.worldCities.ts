@@ -1,6 +1,6 @@
 "use server";
 
-import { getCities } from "@/lib/mongodb/worldCities";
+import { getCities, warmUpDatabase } from "@/lib/mongodb/worldCities";
 
 export async function getCitiesBySearch(query: string): Promise<WorldCity[]> {
   if (query.length < 2) return [];
@@ -11,4 +11,8 @@ export async function getCitiesBySearch(query: string): Promise<WorldCity[]> {
   } else {
     return [];
   }
+}
+
+export async function runWarmUpDatabase() {
+  await warmUpDatabase();
 }
