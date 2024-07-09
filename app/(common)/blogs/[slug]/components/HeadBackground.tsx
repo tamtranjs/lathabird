@@ -10,11 +10,11 @@ interface Props {
 export default async function HeadBackground({ blogPost }: Props) {
 
   const blogPostData = await blogPost;
-  const bgUrl = blogPostData.coverImage.url || '/images/cta.jpg';
+  const bgUrl = blogPostData.coverImage.url || '/images/background1.jpg';
 
   return (
     <section
-      className="relative table w-full items-center py-36 bg-top bg-no-repeat bg-cover"
+      className="relative table w-full items-center py-36 bg-center bg-no-repeat bg-cover"
       style={{
         backgroundImage: `url(${bgUrl})`,
       }}

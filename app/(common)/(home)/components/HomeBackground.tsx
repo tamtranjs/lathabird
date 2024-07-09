@@ -5,11 +5,13 @@ import SearchForm from "@/components/elements/SearchBox/SearchForm";
 import { runWarmUpDatabase } from "@/actions/mongo.worldCities";
 
 const images = [
-  "/images/1.jpg",
-  "/images/2.jpg",
-  "/images/3.jpg",
-  "/images/4.jpg",
-  "/images/5.jpg",
+  "/images/background12.jpg",
+  "/images/background3.jpg",
+  "/images/background6.jpg",
+  "/images/background8.jpg",
+  "/images/background9.jpg",
+  "/images/background10.jpg",
+  "/images/background11.jpg",
 ];
 
 export default function HomeBackground() {
