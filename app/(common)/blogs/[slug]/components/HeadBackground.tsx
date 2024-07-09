@@ -4,7 +4,7 @@ import { FaChevronRight } from "react-icons/fa";
 import Link from "next/link";
 
 interface Props {
-  blogPost: Promise<any | null>;
+  blogPost: any
 }
 
 export default async function HeadBackground({ blogPost }: Props) {

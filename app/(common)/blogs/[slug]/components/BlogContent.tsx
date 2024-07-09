@@ -5,7 +5,7 @@ import TravelBlogs from "./TravelBlogs";
 import RichText from "./RichText";
 
 interface Props {
-  blogPost: Promise<any | null>;
+  blogPost: any;
 }
 
 export default async function BlogContent(props: Props) {

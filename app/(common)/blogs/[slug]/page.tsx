@@ -3,6 +3,7 @@ import BlogContent from "./components/BlogContent";
 import { Suspense } from "react";
 import { getBlogPostDetail } from "@/lib/contentful/getBlogPostDetail";
 import HeadBackground from "./components/HeadBackground";
+import { notFound } from "next/navigation";
 
 interface Props {
   params: {
@@ -31,11 +32,16 @@ export async function generateMetadata(
 
 export default async function BlogDetail({ params: { slug }}: Props) {
 
-  const blogPost: Promise<any> = getBlogPostDetail(slug);  
+  const blogPost = await getBlogPostDetail(slug);  
+  if (!blogPost) {
+    return notFound();
+  }
 
   return (
     <>
-      <HeadBackground blogPost={blogPost}/>
+      <Suspense fallback={<div>Loading...</div>}>
+        <HeadBackground blogPost={blogPost}/>
+      </Suspense>
       <section className="relative md:py-24 py-16">
         <Suspense fallback={<div>Loading...</div>}>
           <BlogContent
