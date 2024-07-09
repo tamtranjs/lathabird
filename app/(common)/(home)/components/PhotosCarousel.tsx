@@ -71,8 +71,8 @@ export default function PhotosCarousel() {
                     src={item}
                     className="w-auto h-auto sm:size-40 object-cover"
                     alt=""
-                    width={160}
-                    height={160}
+                    width={1920}
+                    height={1080}
                     priority
                     onClick={() =>  handleImageClick(index)}
                   />
