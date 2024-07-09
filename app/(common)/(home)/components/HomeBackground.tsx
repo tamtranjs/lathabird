@@ -5,7 +5,7 @@ import SearchForm from "@/components/elements/SearchBox/SearchForm";
 import { runWarmUpDatabase } from "@/actions/mongo.worldCities";
 
 const images = [
-  "/images/background12.jpg",
+  "/images/background1.jpg",
   "/images/background3.jpg",
   "/images/background6.jpg",
   "/images/background8.jpg",
