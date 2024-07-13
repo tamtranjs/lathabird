@@ -3,8 +3,9 @@ import Image from "next/image";
 import { FiCamera } from "react-icons/fi";
 
 interface ImageProps {
-  handleClick: () => void;
+  handleClick: (index: number) => void;
   imgObj: {
+    index: number;
     url: string;
     fileName: string;
     width: number;
@@ -30,7 +31,7 @@ export const ImageViewer: React.FC<ImageProps> = React.memo(function ImageView({
         <button
           area-label="View Image"
           type="button"
-          onClick={handleClick}
+          onClick={() => handleClick(imgObj.index)}
           className="inline-flex justify-center items-center size-9 bg-red-500 text-white rounded-full lightbox"
         >
           <FiCamera className="size-4 align-middle"></FiCamera>
