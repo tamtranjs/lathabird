@@ -18,6 +18,7 @@ export default async function TourBody(props: Props) {
     return notFound();
   }
 
+  const imageList = tour.data.imageList;
   const tourInfo = pick(tour.data, [
     "title",
     "place",
@@ -35,7 +36,7 @@ export default async function TourBody(props: Props) {
         <div className="wrapper">
           <div className="grid md:grid-cols-12 grid-cols-1 gap-6">
             <div className="lg:col-span-8 md:col-span-6">
-              <ImageGridView />
+              <ImageGridView imageList={imageList}/>
               <TourInfo tourInfo={tourInfo} />
             </div>
 
