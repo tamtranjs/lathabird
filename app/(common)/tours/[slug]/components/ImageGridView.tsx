@@ -36,7 +36,7 @@ const imageList = [
   }
 ]
 
-export default function TourContent() {
+export default function ImageGridView() {
   let [photoIndex, setActiveIndex] = useState(0);
   let [isOpen, setOpen] = useState(false);
 
@@ -47,7 +47,7 @@ export default function TourContent() {
 
   return (
     <>
-      <div className="lg:col-span-8 md:col-span-6">
+      {/* <div className="lg:col-span-8 md:col-span-6"> */}
         <div className="grid grid-cols-12 gap-4">
           <div className="col-span-7 md:col-span-8">
             <ImageViewer
@@ -74,7 +74,7 @@ export default function TourContent() {
               handleClick={handleClick} />
           </div>
         </div>
-      </div>
+      {/* </div> */}
       {isOpen && (
         <Lightbox
           mainSrc={imageList[photoIndex].url}
