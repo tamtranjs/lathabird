@@ -1,15 +1,13 @@
-
 import Image from "next/image";
 import BlogSideBar from "./BlogSideBar";
 import TravelBlogs from "./TravelBlogs";
-import RichText from "./RichText";
+import RichText from "@/components/layouts/RichText";
 
 interface Props {
   blogPost: any;
 }
 
 export default async function BlogContent(props: Props) {
-
   const blogPost = await props.blogPost;
   const { coverImage } = blogPost;
 
@@ -30,9 +28,9 @@ export default async function BlogContent(props: Props) {
             </div>
           </div>
         </div>
-        <BlogSideBar authorData={blogPost?.author}/>
+        <BlogSideBar authorData={blogPost?.author} />
       </div>
       <TravelBlogs />
     </div>
-  )
+  );
 }

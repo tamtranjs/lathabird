@@ -5,6 +5,7 @@ import SideMap from "./SideMap";
 import ImageGridView from "./ImageGridView";
 import TourInfo from "./TourInfo";
 import { pick } from "lodash";
+import TourDescription from "./TourDescription";
 
 interface Props {
   slug: string;
@@ -28,6 +29,7 @@ export default async function TourBody(props: Props) {
     "language",
     "feePerDayOnePerson",
   ]);
+  const discription = tour.data.description;
 
   return (
     <>
@@ -36,10 +38,10 @@ export default async function TourBody(props: Props) {
         <div className="wrapper">
           <div className="grid md:grid-cols-12 grid-cols-1 gap-6">
             <div className="lg:col-span-8 md:col-span-6">
-              <ImageGridView imageList={imageList}/>
+              <ImageGridView imageList={imageList} />
               <TourInfo tourInfo={tourInfo} />
+              <TourDescription description={discription} />
             </div>
-
             <SideMap />
           </div>
         </div>

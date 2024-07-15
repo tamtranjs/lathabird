@@ -50,7 +50,7 @@ export default function TourInfo({ tourInfo }: Props) {
 
   return (
     <>
-      <h5 className="text-2xl font-semibold mt-5">{title}</h5>
+      <h2 className="text-2xl font-semibold mt-5">{title}</h2>
       <p className="flex items-center text-slate-400 font-medium mt-2">
         <FiMapPin className="size-4 mr-1" /> {place}
       </p>
