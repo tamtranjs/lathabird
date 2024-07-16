@@ -29,7 +29,7 @@ export const ImageViewer: React.FC<ImageProps> = React.memo(function ImageView({
       <div className="absolute inset-0 group-hover:bg-slate-900/70 duration-500 ease-in-out"></div>
       <div className="absolute top-1/2 -translate-y-1/2 start-0 end-0 text-center opacity-0 group-hover:opacity-100 duration-500">
         <button
-          area-label="View Image"
+          aria-label="View Image"
           type="button"
           onClick={() => handleClick(imgObj.index)}
           className="inline-flex justify-center items-center size-9 bg-red-500 text-white rounded-full lightbox"
