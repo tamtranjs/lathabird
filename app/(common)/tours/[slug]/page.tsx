@@ -28,7 +28,6 @@ export async function generateMetadata({
 }
 
 export default async function TourDetail({ params: { slug } }: Props) {
-
   return (
     <>
       <Suspense fallback={<h1>Loading..</h1>}>
@@ -37,4 +36,3 @@ export default async function TourDetail({ params: { slug } }: Props) {
     </>
   );
 }
-

@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/popover";
 import { FiUser, FiUsers } from "react-icons/fi";
 
-export default function SideMap() {
+export default function TourForm() {
   const [date, setDate] = useState<Date | undefined>(new Date());
   const [open, setOpen] = useState(false);
 

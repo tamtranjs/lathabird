@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getTourDetail } from "@/lib/contentful/tours/getTourDetail";
 import HeadBackground from "./HeadBackground";
-import SideMap from "./SideMap";
+import TourForm from "./TourForm";
 import ImageGridView from "./ImageGridView";
 import TourInfo from "./TourInfo";
 import { pick } from "lodash";
@@ -42,7 +42,7 @@ export default async function TourBody(props: Props) {
               <TourInfo tourInfo={tourInfo} />
               <TourDescription description={discription} />
             </div>
-            <SideMap />
+            <TourForm />
           </div>
         </div>
       </section>
