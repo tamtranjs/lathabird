@@ -13,34 +13,35 @@ interface Props {
 
 export default async function TourBody(props: Props) {
   const { slug } = props;
-  const tour = await getTourDetail(slug);
 
-  if (!tour.ok) {
+  const tourObj = await getTourDetail(slug);
+  if (!tourObj.ok) {
     return notFound();
   }
 
-  const imageList = tour.data.imageList;
-  const tourInfo = pick(tour.data, [
+  const { title, photoList }: any = tourObj.data;
+  const tourInfo: any = pick(tourObj.data, [
     "title",
     "place",
     "duration",
-    "type",
+    "activityType",
     "groupSize",
     "language",
-    "feePerDayOnePerson",
+    "costPerDay",
   ]);
-  const discription = tour.data.description;
+
+  const tourDescription = tourObj.data?.tourDescription;
 
   return (
     <>
-      <HeadBackground tour={tour} />
+      <HeadBackground title={title} backgroundPhoto={photoList[0].url} />
       <section className="relative md:py-24 py-16">
         <div className="wrapper">
           <div className="grid md:grid-cols-12 grid-cols-1 gap-6">
             <div className="md:col-span-6 lg:col-span-8">
-              <ImageGridView imageList={imageList} />
+              <ImageGridView photoList={photoList} />
               <TourInfo tourInfo={tourInfo} />
-              <TourDescription description={discription} />
+              <TourDescription description={tourDescription} />
             </div>
             <div className="md:col-span-5 lg:col-span-4">
               <SideBar />

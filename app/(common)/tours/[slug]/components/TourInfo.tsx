@@ -29,11 +29,11 @@ interface Props {
   tourInfo: {
     title: string;
     place: string;
-    duration: string;
-    type: string;
-    groupSize: string;
+    duration: number;
+    activityType: string;
+    groupSize: number;
     language: string;
-    feePerDayOnePerson: string;
+    costPerDay: number;
   };
 }
 
@@ -42,10 +42,10 @@ export default function TourInfo({ tourInfo }: Props) {
     title,
     place,
     duration,
-    type,
+    activityType,
     groupSize,
     language,
-    feePerDayOnePerson,
+    costPerDay,
   } = tourInfo;
 
   return (
@@ -56,13 +56,17 @@ export default function TourInfo({ tourInfo }: Props) {
       </p>
 
       <ul className="list-none">
-        <InfoItem Icon={FiClock} title="Duration" value={duration} />
-        <InfoItem Icon={FiActivity} title="Type" value={type} />
-        <InfoItem Icon={FiUsers} title="Group Size" value={groupSize} />
+        <InfoItem Icon={FiClock} title="Duration" value={`${duration} days`} />
+        <InfoItem Icon={FiActivity} title="Type" value={activityType} />
+        <InfoItem
+          Icon={FiUsers}
+          title="Group Size"
+          value={`${groupSize} Peoples`}
+        />
         <InfoItem Icon={FiGlobe} title="Languages" value={language} />
         <InfoItem
           Icon={FiDollarSign}
-          title={`${feePerDayOnePerson} / Person`}
+          title={`$${costPerDay} / Person`}
           value="1 Day"
         />
       </ul>

@@ -22,8 +22,8 @@ export async function generateMetadata({
   }
 
   return {
-    title: tour.data.title,
-    description: tour.data.title,
+    title: tour.data?.title,
+    description: tour.data?.title,
   };
 }
 

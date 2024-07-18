@@ -69,3 +69,50 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
     availableDates,
   };
 };
+
+export const getTourObject = (item: any, assets: any) => {
+  const id = item.sys.id;
+
+  const {
+    title,
+    slug,
+    duration,
+    activityType,
+    groupSize,
+    language,
+    costPerDay,
+    photoList,
+    tourDescription,
+    label,
+    place,
+  } = item.fields;
+
+  let galleryImages: any[] = [];
+  photoList.forEach((image: any) => {
+    assets.forEach((asset: any) => {
+      if (asset.sys.id === image.sys.id) {
+        galleryImages.push({
+          url: `https://${asset.fields.file.url.slice(2)}`,
+          width: asset.fields.file.details.image.width,
+          height: asset.fields.file.details.image.height,
+          fileName: asset.fields.file.fileName,
+        });
+      }
+    });
+  });
+
+  return {
+    id,
+    title,
+    slug,
+    place,
+    duration,
+    activityType,
+    groupSize,
+    language,
+    costPerDay,
+    tourDescription,
+    photoList: galleryImages,
+    label,
+  };
+};
