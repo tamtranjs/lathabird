@@ -1,4 +1,3 @@
-import { packages } from "@/lib/data";
 import TourItem from "@/components/elements/TourItem";
 import { notFound } from "next/navigation";
 

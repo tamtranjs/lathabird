@@ -1,7 +1,9 @@
-import { packages } from "@/lib/data";
 import TourItem from "@/components/elements/TourItem";
+import { getTourList } from "@/lib/contentful/tours/getTourList";
 
-export default function ToursPackages() {
+export default async function ToursPackages() {
+  const tourList = await getTourList();
+
   return (
     <div className="wrapper relative md:mt-24 mt-16">
       <div className="grid grid-cols-1 pb-8 text-center">
@@ -15,9 +17,10 @@ export default function ToursPackages() {
       </div>
 
       <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 mt-6 gap-6">
-        {packages.map((item, index) => {
-          return <TourItem key={index} {...item} />;
-        })}
+        {tourList.ok &&
+          tourList.data.map((item: any) => {
+            return <TourItem key={item.id} {...item} />;
+          })}
       </div>
     </div>
   );
