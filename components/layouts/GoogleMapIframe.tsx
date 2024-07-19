@@ -23,7 +23,7 @@ const GoogleMapIframe: React.FC<MapProps> = ({
       allowFullScreen
       src={mapUrl}
       title="Google Maps Location"
-      sandbox="allow-scripts allow-same-origin"
+      // sandbox="allow-scripts allow-same-origin"
     />
   );
 };

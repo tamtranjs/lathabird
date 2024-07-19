@@ -31,6 +31,7 @@ export default async function TourBody(props: Props) {
   ]);
 
   const tourDescription = tourObj.data?.tourDescription;
+  const location = tourObj.data?.location;
 
   return (
     <>
@@ -44,7 +45,7 @@ export default async function TourBody(props: Props) {
               <TourDescription description={tourDescription} />
             </div>
             <div className="md:col-span-5 lg:col-span-4">
-              <SideBar />
+              <SideBar lat={location.lat} lng={location.lon} />
             </div>
           </div>
         </div>

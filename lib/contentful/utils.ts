@@ -85,6 +85,7 @@ export const getTourObject = (item: any, assets: any) => {
     tourDescription,
     label,
     place,
+    location,
   } = item.fields;
 
   let galleryImages: any[] = [];
@@ -106,6 +107,7 @@ export const getTourObject = (item: any, assets: any) => {
     title,
     slug,
     place,
+    location,
     duration,
     activityType,
     groupSize,
