@@ -1,14 +1,11 @@
 import { getEntriesUrl } from "@/lib/const";
 import { getTourObject } from "../utils";
 
-export const getTourDetail = async (slug: string) => {
+export const getTourList = async () => {
   try {
-    const response = await fetch(
-      getEntriesUrl("tour") + `&fields.slug=${slug}`,
-      {
-        next: { revalidate: 60 },
-      }
-    );
+    const response = await fetch(getEntriesUrl("tour"), {
+      next: { revalidate: 60 },
+    });
 
     const data = await response.json();
     if (data.items.length === 0) {
@@ -17,17 +14,17 @@ export const getTourDetail = async (slug: string) => {
         data: null,
       };
     } else {
-      const item = data.items[0];
+      const items = data.items;
       const assets = data.includes.Asset;
 
-      const tourObject = getTourObject(item, assets);
+      const tourList = items.map((item: any) => getTourObject(item, assets));
       return {
         ok: true,
-        data: tourObject,
+        data: tourList,
       };
     }
   } catch (error) {
-    console.log("Get Tour Detail Error", error);
+    console.log("Get Tour List Error", error);
     return {
       ok: false,
       data: null,

@@ -4,20 +4,22 @@ import { FiMapPin } from "react-icons/fi";
 import { FaStar, FaHeart, FaArrowRight } from "react-icons/fa";
 
 export default function TourItem(item: any) {
+  const imageObj = item.photoList[0];
+
   return (
     <div className="group rounded-md shadow dark:shadow-gray-700">
       <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-700 mx-2 mt-2">
         <Image
-          src={item.image}
+          src={imageObj.url}
           className="scale-125 group-hover:scale-100 duration-500"
-          alt=""
-          width={783}
-          height={490}
+          alt={imageObj.fileName}
+          width={imageObj.width}
+          height={imageObj.height}
         />
-        {item.tagText && (
+        {item.label && (
           <div className="absolute top-0 start-0 p-4">
             <span className="bg-red-500 text-white text-[12px] px-2.5 py-1 font-medium rounded-md h-5">
-              {item.tagText}
+              {item.label}
             </span>
           </div>
         )}
@@ -44,7 +46,7 @@ export default function TourItem(item: any) {
         </dl>
 
         <Link
-          href={`#`}
+          href={`/tours/${item.slug}`}
           className="text-lg font-medium hover:text-primary duration-500 ease-in-out"
         >
           {item.title}
@@ -59,9 +61,11 @@ export default function TourItem(item: any) {
         </dl>
 
         <div className="mt-3 pt-3 flex justify-between items-center border-t border-slate-100 dark:border-gray-800">
-          <h5 className="text-lg font-medium text-primary">{item.amount}</h5>
+          <h5 className="text-lg font-medium text-primary">
+            $ {item.costPerDay} / Day
+          </h5>
           <Link
-            href=""
+            href={`/tours/${item.slug}`}
             className="text-slate-400 hover:text-primary flex items-center"
           >
             <span>
