@@ -15,7 +15,7 @@ const images = [
 ];
 
 export default function HomeBackground() {
-  const [currentIndex, setCurrentIndex] = useState(0);  
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -44,11 +44,11 @@ export default function HomeBackground() {
       <div className="wrapper relative">
         <div className="text-center mb-12">
           <h1 className="font-bold text-white lg:leading-normal leading-normal text-4xl lg:text-6xl mb-6 mt-5">
-            Let the journey begin...
+            Hãy bắt đầu cuộc hành trình...
           </h1>
           <p className="text-white/70 text-xl max-w-xl mx-auto">
-            Planning for a trip? We will organize your trip with the best places
-            and within best budget!
+            Bạn đang lên kế hoạch cho một chuyến đi? Chúng tôi sẽ sắp xếp chuyến
+            đi của bạn với những địa điểm tốt nhất và với ngân sách tốt nhất!
           </p>
         </div>
         <div className="p-6 bg-white dark:bg-slate-900 rounded-xl shadow dark:shadow-gray-700">

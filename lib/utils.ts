@@ -41,6 +41,42 @@ export const generateMonthYearList = () => {
   return monthYearList;
 };
 
+export const generateVNMMonthYearList = () => {
+  const monthYearList: SearchItem[] = [];
+
+  const vietnameseMonthList = [
+    "Tháng 1",
+    "Tháng 2",
+    "Tháng 3",
+    "Tháng 4",
+    "Tháng 5",
+    "Tháng 6",
+    "Tháng 7",
+    "Tháng 8",
+    "Tháng 9",
+    "Tháng 10",
+    "Tháng 11",
+    "Tháng 12",
+  ];
+
+  const currentMonth = new Date().getMonth();
+  const currentYear = new Date().getFullYear();
+
+  // get 12 months from current month
+  for (let i = 0; i <= 12; i++) {
+    const month = currentMonth + i;
+    const year = currentYear + Math.floor(month / 12);
+    const monthIndex = month % 12;
+
+    monthYearList.push({
+      type: `monthYear`,
+      name: `${vietnameseMonthList[monthIndex]}, ${year}`,
+    });
+  }
+
+  return monthYearList;
+};
+
 export const checkIfAllDatesArePast = (datesArray: string[]) => {
   const monthList = [
     "Jan",

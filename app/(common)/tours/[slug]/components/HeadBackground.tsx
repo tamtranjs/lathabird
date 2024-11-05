@@ -1,8 +1,3 @@
-import { Suspense } from "react";
-// import BlogIntro from "./BlogIntro";
-import { FaChevronRight } from "react-icons/fa";
-import Link from "next/link";
-
 interface Props {
   title: string;
   backgroundPhoto: string;
@@ -26,22 +21,6 @@ export default async function HeadBackground({
             {title}
           </h1>
         </div>
-      </div>
-      <div className="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
-        <ul className="tracking-[0.5px] mb-0 flex items-center justify-center">
-          <li className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="inline-block text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180">
-            <FaChevronRight />
-          </li>
-          <li
-            className="inline-block uppercase text-[13px] font-bold duration-500 ease-in-out text-white"
-            aria-current="page"
-          >
-            Blog Detail
-          </li>
-        </ul>
       </div>
     </section>
   );

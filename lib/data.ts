@@ -1,12 +1,6 @@
-import {
-  FiShoppingCart,
-  FiDribbble,
-  FiLinkedin,
-  FiFacebook,
-  FiInstagram,
-  FiTwitter,
-  FiMail,
-} from "react-icons/fi";
+import { FiFacebook, FiInstagram } from "react-icons/fi";
+
+import { FaXTwitter } from "react-icons/fa6";
 
 type City = {
   name: string;
@@ -135,32 +129,16 @@ type Package = {
 
 export const footerSocial = [
   {
-    icon: FiShoppingCart,
-    link: "https://1.envato.market/travosy-react",
-  },
-  {
-    icon: FiDribbble,
-    link: "https://dribbble.com/shreethemes",
-  },
-  {
-    icon: FiLinkedin,
-    link: "http://linkedin.com/company/shreethemes",
-  },
-  {
     icon: FiFacebook,
-    link: "https://www.facebook.com/shreethemes",
+    link: "https://www.instagram.com/_lathabird_/",
   },
   {
     icon: FiInstagram,
-    link: "https://www.instagram.com/shreethemes",
+    link: "https://www.instagram.com/_lathabird_/",
   },
   {
-    icon: FiTwitter,
-    link: "https://twitter.com/shreethemes",
-  },
-  {
-    icon: FiMail,
-    link: "mailto:support@shreethemes.in",
+    icon: FaXTwitter,
+    link: "https://www.instagram.com/_lathabird_/",
   },
 ];
 
@@ -368,31 +346,31 @@ export const blogData: Blog[] = [
 
 export const menuItems = [
   {
-    title: "Flights",
+    title: "Chuyến bay",
     url: "/flights",
   },
   {
-    title: "Hotels",
+    title: "Khách sạn",
     url: "/hotels",
   },
   {
-    title: "Tours",
+    title: "Tour và trải nghiệm",
     url: "/tours",
   },
-  {
-    title: "Visa",
-    url: "/visa",
-  },
-  {
-    title: "Alerts",
-    url: "/alerts",
-  },
+  // {
+  //   title: "Visa",
+  //   url: "/visa",
+  // },
+  // {
+  //   title: "Alerts",
+  //   url: "/alerts",
+  // },
   {
     title: "Blogs",
     url: "/blogs",
   },
-  {
-    title: "Travel Photos",
-    url: "/travel-photos",
-  },
+  // {
+  //   title: "Travel Photos",
+  //   url: "/travel-photos",
+  // },
 ];

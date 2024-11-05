@@ -1,6 +1,3 @@
-import Link from "next/link";
-import { FaChevronRight } from "react-icons/fa";
-
 interface Props {
   title: string;
   name: string;
@@ -16,23 +13,6 @@ export default function HeadBackGround(props: Props) {
             {props.title}
           </h3>
         </div>
-      </div>
-
-      <div className="absolute text-center z-10 bottom-5 start-0 end-0 mx-3">
-        <ul className="tracking-[0.5px] mb-0 flex items-center justify-center">
-          <li className="uppercase text-[13px] font-bold duration-500 ease-in-out text-white/50 hover:text-white">
-            <Link href="/">Home</Link>
-          </li>
-          <li className="text-base text-white/50 mx-0.5 ltr:rotate-0 rtl:rotate-180">
-            <FaChevronRight />
-          </li>
-          <li
-            className="uppercase text-[13px] font-bold duration-500 ease-in-out text-white"
-            aria-current="page"
-          >
-            {props.name}
-          </li>
-        </ul>
       </div>
     </section>
   );
