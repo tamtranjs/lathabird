@@ -1,19 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
 import { topDestination } from "@/lib/data";
+import SectionTitle from "@/components/elements/SectionTitle";
 
 export default function Destinations() {
   return (
     <div className="wrapper">
-      <div className="grid grid-cols-1 pb-8 text-center">
-        <h3 className="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">
-          Bạn muốn đi chơi đâu?
-        </h3>
-        <p className="text-slate-400 max-w-xl mx-auto">
-          Planning for a trip? We will organize your trip with the best places
-          and within best budget!
-        </p>
-      </div>
+      <SectionTitle title="Bạn muốn đi chơi đâu?" />
       <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 relative mt-6 gap-6">
         {topDestination.map((item, index) => {
           return (

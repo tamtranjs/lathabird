@@ -13,8 +13,8 @@ export default async function BlogContent(props: Props) {
 
   return (
     <div className="wrapper">
-      <div className="grid md:grid-cols-12 grid-cols-1 gap-6">
-        <div className="lg:col-span-8 md:col-span-6">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
+        <div className="col-span-12">
           <div className="relative overflow-hidden rounded-md shadow dark:shadow-gray-800">
             <Image
               src={coverImage.url}
@@ -28,7 +28,6 @@ export default async function BlogContent(props: Props) {
             </div>
           </div>
         </div>
-        <BlogSideBar authorData={blogPost?.author} />
       </div>
       <TravelBlogs />
     </div>

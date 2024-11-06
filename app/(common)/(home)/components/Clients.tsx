@@ -6,6 +6,8 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
+import SectionTitle from "@/components/elements/SectionTitle";
+
 import { FaQuoteLeft, FaStar } from "react-icons/fa";
 
 import { ClientData, Client } from "@/lib/data";
@@ -58,15 +60,7 @@ export const Clients = async () => {
 
   return (
     <div className="wrapper relative md:mt-24 mt-16">
-      <div className="grid grid-cols-1 pb-6 text-center">
-        <h3 className="mb-6 md:text-3xl text-2xl md:leading-normal leading-normal font-semibold">
-          Phản hồi từ người dùng của chúng tôi
-        </h3>
-        <p className="text-slate-400 max-w-xl mx-auto">
-          This is just a simple text made for this unique and awesome template,
-          you can replace it with any text.
-        </p>
-      </div>
+      <SectionTitle title="Phản hồi từ người dùng của chúng tôi" />
       <Carousel className="w-full mt-6">
         <CarouselContent className="-ml-1">
           {Array.from({ length: 6 }).map((_, index) => (
