@@ -1,5 +1,7 @@
 
-import { getCitiesBySearch } from "@/actions/worldCities";
+"use client";
+
+import { getCitiesBySearch } from "@/actions/mongo.worldCities";
 import { useState, useEffect, useRef } from "react";
 import { debounce } from "lodash";
 
@@ -39,14 +41,15 @@ export default function DynamicList(props: Props) {
   }
 
   return (
-    <ul className="flex flex-col space-y-1">  
-      {displayList.map((item: WorldCity, index: number) => (
+    <ul className="flex flex-col max-h-80 overflow-x-hidden overflow-y-auto">  
+      {displayList.map((item: WorldCity) => (
         <li
-          key={index}
-          className="h-10 flex items-center gap-1 hover:bg-blue-300 justify-center p-1 cursor-pointer"
+          key={item.id}
+          className="flex flex-col gap-1 hover:bg-blue-300 p-2 cursor-pointer border-b border-gray-200"
           onClick={() => onSelectCity(item)}
         >
           <span className="text-sm">{item.city}</span>
+          <span className="text-xs text-slate-500">{item.country}</span>
         </li>
       ))}
     </ul>

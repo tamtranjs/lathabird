@@ -1,4 +1,4 @@
-import { getBlogObject } from "./getBlogPostDetail";
+import { getBlogObject } from "./utils";
 import { ENTRIES_URL } from "@/lib/const";
 
 export const getBlogPostList = async (blogType: string) => {

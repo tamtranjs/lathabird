@@ -102,18 +102,4 @@
   .wrapper {
     @apply container max-w-[1120px];
   }
-  @keyframes changeBackground {
-    0% { background-image: url('/images/1.jpg'); }
-    25% { background-image: url('/images/2.jpg'); }
-    50% { background-image: url('/images/3.jpg'); }
-    75% { background-image: url('/images/4.jpg'); }
-    100% { background-image: url('/images/1.jpg'); }
-  }
-  .home-background {
-    object-fit: fill;
-    background-size: cover;
-    animation: changeBackground 20s infinite;
-    
-    /* @apply bg-[url('/images/1.jpg')] object-fill bg-cover; */
-  }
 }

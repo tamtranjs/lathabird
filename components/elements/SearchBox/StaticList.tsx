@@ -36,11 +36,11 @@ export default function StaticList(props: Props) {
   }
 
   return (
-    <ul className="flex flex-col space-y-1 max-h-56 overflow-x-hidden overflow-y-auto">  
+    <ul className="flex flex-col max-h-56 overflow-x-hidden overflow-y-auto">  
       {displayList.map((item: SearchItem, index: number) => (
         <li
           key={index}
-          className="h-10 flex items-center gap-1 hover:bg-blue-300 justify-center p-1 cursor-pointer"
+          className="flex items-center gap-1 hover:bg-blue-300 justify-center p-2 cursor-pointer border-b border-gray-200"
           onClick={() => onSelectCity(item)}
         >
           <span className="text-sm">{item.name}</span>

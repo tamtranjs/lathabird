@@ -8,14 +8,27 @@ import {
   CarouselPrevious,
 } from "@/components/ui/carousel";
 
-import { photos } from "@/lib/data";
-
 import React, { useState } from "react";
 import Image from "next/image";
 import Autoplay from "embla-carousel-autoplay";
 
 import Lightbox from 'react-18-image-lightbox';
 import "react-18-image-lightbox/style.css"
+
+const photos = [
+  "/images/background1.jpg",
+  "/images/background2.jpg",
+  "/images/background3.jpg",
+  "/images/background4.jpg",
+  "/images/background5.jpg",
+  "/images/background6.jpg",
+  "/images/background7.jpg",
+  "/images/background8.jpg",
+  "/images/background9.jpg",
+  "/images/background10.jpg",
+  "/images/background11.jpg",
+  "/images/background12.jpg",
+]
 
 export default function PhotosCarousel() {
 
@@ -58,8 +71,8 @@ export default function PhotosCarousel() {
                     src={item}
                     className="w-auto h-auto sm:size-40 object-cover"
                     alt=""
-                    width={160}
-                    height={160}
+                    width={1920}
+                    height={1080}
                     priority
                     onClick={() =>  handleImageClick(index)}
                   />

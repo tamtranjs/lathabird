@@ -1,12 +1,6 @@
-import {
-  FiShoppingCart,
-  FiDribbble,
-  FiLinkedin,
-  FiFacebook,
-  FiInstagram,
-  FiTwitter,
-  FiMail,
-} from "react-icons/fi";
+import { FiFacebook, FiInstagram } from "react-icons/fi";
+
+import { FaXTwitter } from "react-icons/fa6";
 
 type City = {
   name: string;
@@ -133,124 +127,18 @@ type Package = {
   amount: string;
 };
 
-export const packages: Package[] = [
-  {
-    id: 1,
-    image: "/images/listing/1.jpg",
-    tagText: "10% Off",
-    place: "Dubai",
-    title: "Cuba Sailing Adventure",
-    amount: "$58/day",
-  },
-  {
-    id: 2,
-    image: "/images/listing/2.jpg",
-    place: "Italy",
-    title: "Tour in New York",
-    amount: "$ 58 / Day",
-  },
-  {
-    id: 3,
-    image: "/images/listing/3.jpg",
-    place: "Maldivas",
-    title: "Discover Greece",
-    amount: "$ 58 / Day",
-  },
-  {
-    id: 4,
-    image: "/images/listing/4.jpg",
-    place: "USA",
-    title: "Museum of Modern Art",
-    amount: "$ 58 / Day",
-  },
-  {
-    id: 5,
-    image: "/images/listing/5.jpg",
-    place: "Bali",
-    title: "Peek Mountain View",
-    amount: "$ 58 / Day",
-  },
-  {
-    id: 6,
-    image: "/images/listing/6.jpg",
-    tagText: "25% Off",
-    place: "Bangkok",
-    title: "Hot Baloon Journey",
-    amount: "$ 58 / Day",
-  },
-  {
-    id: 7,
-    image: "/images/listing/7.jpg",
-    place: "Singapore",
-    title: "Orca Camp Kayaking Trip",
-    amount: "$ 58 / Day",
-  },
-  {
-    id: 8,
-    image: "/images/listing/8.jpg",
-    tagText: "20% Off",
-    place: "Thailand",
-    title: "Caño Cristales River Trip",
-    amount: "$ 58 / Day",
-  },
-  {
-    id: 9,
-    image: "/images/listing/9.jpg",
-    place: "Pattaya",
-    title: "Osa Peninsula to Dominical",
-    amount: "$ 58 / Day",
-  },
-  {
-    id: 10,
-    image: "/images/listing/10.jpg",
-    place: "Lakshadweep",
-    title: "History of The Emporer",
-    amount: "$ 58 / Day",
-  },
-  {
-    id: 11,
-    image: "/images/listing/11.jpg",
-    place: "Paris",
-    title: "Wildness of Paris",
-    amount: "$ 58 / Day",
-  },
-  {
-    id: 12,
-    image: "/images/listing/12.jpg",
-    place: "London",
-    title: "The Hills and Mountains",
-    amount: "$ 58 / Day",
-  },
-];
-
 export const footerSocial = [
   {
-    icon: FiShoppingCart,
-    link: "https://1.envato.market/travosy-react",
-  },
-  {
-    icon: FiDribbble,
-    link: "https://dribbble.com/shreethemes",
-  },
-  {
-    icon: FiLinkedin,
-    link: "http://linkedin.com/company/shreethemes",
-  },
-  {
     icon: FiFacebook,
-    link: "https://www.facebook.com/shreethemes",
+    link: "https://www.instagram.com/_lathabird_/",
   },
   {
     icon: FiInstagram,
-    link: "https://www.instagram.com/shreethemes",
+    link: "https://www.instagram.com/_lathabird_/",
   },
   {
-    icon: FiTwitter,
-    link: "https://twitter.com/shreethemes",
-  },
-  {
-    icon: FiMail,
-    link: "mailto:support@shreethemes.in",
+    icon: FaXTwitter,
+    link: "https://www.instagram.com/_lathabird_/",
   },
 ];
 
@@ -458,43 +346,31 @@ export const blogData: Blog[] = [
 
 export const menuItems = [
   {
-    title: "Flights",
+    title: "Chuyến bay",
     url: "/flights",
   },
   {
-    title: "Hotels",
+    title: "Khách sạn",
     url: "/hotels",
   },
   {
-    title: "Tours",
+    title: "Tour và trải nghiệm",
     url: "/tours",
   },
-  {
-    title: "Visa",
-    url: "/visa",
-  },
-  {
-    title: "Alerts",
-    url: "/alerts",
-  },
+  // {
+  //   title: "Visa",
+  //   url: "/visa",
+  // },
+  // {
+  //   title: "Alerts",
+  //   url: "/alerts",
+  // },
   {
     title: "Blogs",
     url: "/blogs",
   },
-  {
-    title: "Travel Photos",
-    url: "/travel-photos",
-  },
-];
-
-export const photos = [
-  "/images/listing/1.jpg",
-  "/images/listing/2.jpg",
-  "/images/listing/3.jpg",
-  "/images/listing/4.jpg",
-  "/images/listing/5.jpg",
-  "/images/listing/6.jpg",
-  "/images/listing/7.jpg",
-  "/images/listing/8.jpg",
-  "/images/listing/9.jpg",
+  // {
+  //   title: "Travel Photos",
+  //   url: "/travel-photos",
+  // },
 ];

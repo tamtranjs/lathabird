@@ -5,11 +5,13 @@ import type { FieldValues } from "react-hook-form";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
-import SearchBox from "@/components/elements/SearchBox/SearchBox";
+import SearchDateBox from "@/components/elements/SearchBox/SearchDateBox";
 import SearchCitiesBox from "./SearchCitiesBox";
-import { generateMonthYearList } from "@/lib/utils";
+import { generateVNMMonthYearList } from "@/lib/utils";
+import { useRouter } from "next/navigation";
 
 export default function SearchForm() {
+  const router = useRouter();
 
   const {
     register,
@@ -24,83 +26,108 @@ export default function SearchForm() {
       toPlace: "",
       monthYear: "",
       showPastDeal: true,
-    }
-  })
+    },
+  });
 
   const onSubmit = async (data: FieldValues) => {
-    await new Promise((resolve) => setTimeout(resolve, 1000));
-  }
+    const { fromPlace, toPlace, monthYear, showPastDeal } = data;
+    if (!fromPlace && !toPlace) {
+      return;
+    }
+    router.push(
+      `/search?fromPlace=${fromPlace}&toPlace=${toPlace}&monthYear=${monthYear}&showPastDeal=${showPastDeal}`
+    );
+  };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}
+    <form
+      onSubmit={handleSubmit(onSubmit)}
       className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4"
     >
       <div className="flex items-center space-x-2">
-        <label htmlFor="fromPlace" className="form-label font-medium text-slate-900 dark:text-white">From</label>
+        <label
+          htmlFor="fromPlace"
+          className="form-label font-medium text-slate-900 dark:text-white"
+        >
+          Điểm đi
+        </label>
         <div className="w-full mt-2">
-          <input
-            type="text"
-            className="hidden"
-            {...register("fromPlace", {
-              required: "From places is required",
-            })}
-          />
+          <input type="text" className="hidden" {...register("fromPlace")} />
           <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
             <SearchCitiesBox
-              placeholder="City/Country"
-              onChange={(value: string) => {setValue("fromPlace", value)}}
+              placeholder="Thành phố / Quốc gia"
+              onChange={(value: string) => {
+                setValue("fromPlace", value);
+              }}
             />
           </div>
-          {errors.fromPlace && <p className="text-red-500 mt-2">{`${errors.fromPlace.message}`}</p>}
+          {errors.fromPlace && (
+            <p className="text-red-500 mt-2">{`${errors.fromPlace.message}`}</p>
+          )}
         </div>
       </div>
       <div className="flex items-center space-x-2">
-        <label htmlFor="toPlace" className="form-label font-medium text-slate-900 dark:text-white">To</label>
+        <label
+          htmlFor="toPlace"
+          className="form-label font-medium text-slate-900 dark:text-white"
+        >
+          Điểm đến
+        </label>
         <div className="w-full mt-2">
-          <input
-            type="text"
-            className="hidden"
-            {...register("toPlace")}
-          />
+          <input type="text" className="hidden" {...register("toPlace")} />
           <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
             <SearchCitiesBox
-              placeholder="Anywhere"
-              onChange={(value: string) => {setValue("toPlace", value)}}  
+              placeholder="Mọi nơi"
+              onChange={(value: string) => {
+                setValue("toPlace", value);
+              }}
             />
           </div>
         </div>
       </div>
       <div className="flex items-center space-x-2">
-        <label htmlFor="monthYear" className="form-label font-medium text-slate-900 dark:text-white">When</label>
+        <label
+          htmlFor="monthYear"
+          className="form-label font-medium text-slate-900 dark:text-white"
+        >
+          Thời gian
+        </label>
         <div className="w-full mt-2">
-          <input
-            type="text"
-            className="hidden"
-            {...register("monthYear")}
-          />
+          <input type="text" className="hidden" {...register("monthYear")} />
           <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
-            <SearchBox
-              placeholder="All upcoming months"
-              onChange={(value: string) => {setValue("monthYear", value)}}
-              sourceList={generateMonthYearList()}
-              dataType="static"
+            <SearchDateBox
+              placeholder="Tất cả các tháng sắp tới"
+              onChange={(value: string) => {
+                setValue("monthYear", value);
+              }}
+              sourceList={generateVNMMonthYearList()}
             />
           </div>
         </div>
       </div>
       <div className="flex justify-between items-center space-x-2">
         <div className="flex items-center space-x-2">
-          <Checkbox id="show-pass-deal"
+          <Checkbox
+            id="show-pass-deal"
             {...register("showPastDeal")}
             defaultChecked={true}
             onCheckedChange={(value: boolean) => {
-              setValue("showPastDeal", value)}
-            }
+              setValue("showPastDeal", value);
+            }}
           />
-          <label htmlFor="show-pass-deal" className="select-none text-slate-900 dark:text-white">Show past deals</label>
+          <label
+            htmlFor="show-pass-deal"
+            className="select-none text-slate-900 dark:text-white"
+          >
+            Hiển thị deal trước đó
+          </label>
         </div>
-        <div><Button type="submit" disabled={isSubmitting}>Search</Button></div>
+        <div>
+          <Button type="submit" disabled={isSubmitting}>
+            Tìm kiếm
+          </Button>
+        </div>
       </div>
     </form>
-  )
+  );
 }
