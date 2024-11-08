@@ -37,6 +37,12 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
     fileName: "",
   };
   let avatar = "";
+  let backgroundImage = {
+    url: "",
+    width: 0,
+    height: 0,
+    fileName: 0,
+  };
   assets.forEach((asset: any) => {
     if (asset.sys.id === item.fields.coverImage.sys.id) {
       coverImage.url = `https://${asset.fields.file.url.slice(2)}`;
@@ -47,6 +53,15 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
     if (asset.sys.id === avatarId) {
       avatar = `https://${asset.fields.file.url.slice(2)}`;
     }
+    if (
+      item.fields.backgroundImage &&
+      asset.sys.id === item.fields.backgroundImage.sys.id
+    ) {
+      backgroundImage.url = `https://${asset.fields.file.url.slice(2)}`;
+      backgroundImage.width = asset.fields.file.details.image.width;
+      backgroundImage.height = asset.fields.file.details.image.height;
+      backgroundImage.fileName = asset.fields.file.fileName;
+    }
   });
 
   return {
@@ -56,6 +71,7 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
     excerpt,
     date: formatDate,
     tag,
+    backgroundImage,
     coverImage,
     author: {
       name,
