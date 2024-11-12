@@ -27,13 +27,26 @@ export async function generateMetadata(
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
 
-  const { backgroundImage } = blogPost;
+  const { backgroundImage, title, excerpt } = blogPost;
 
   return {
-    title: blogPost.title,
-    description: blogPost.title,
+    title: title,
+    description: excerpt,
     openGraph: {
-      images: [backgroundImage.url, ...previousImages],
+      title: title,
+      description: excerpt,
+      url: `https://${process.env.DOMAIN}/blogs/${slug}`,
+      images: [
+        {
+          url: backgroundImage.url,
+          width: backgroundImage.width,
+          height: backgroundImage.height,
+          alt: `${backgroundImage.fileName}`,
+        },
+        ...previousImages,
+      ],
+      type: "article",
+      locale: "vi-VN",
     },
   };
 }
