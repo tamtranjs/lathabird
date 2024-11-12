@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, ResolvingMetadata } from "next";
 import BlogContent from "./components/BlogContent";
 import { Suspense } from "react";
 import { getBlogPostDetail } from "@/lib/contentful/getBlogPostDetail";
@@ -11,9 +11,10 @@ interface Props {
   };
 }
 
-export async function generateMetadata({
-  params: { slug },
-}: Props): Promise<Metadata> {
+export async function generateMetadata(
+  { params: { slug } }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
   const blogPost = await getBlogPostDetail(slug);
 
   if (!blogPost) {
@@ -23,9 +24,17 @@ export async function generateMetadata({
     };
   }
 
+  // optionally access and extend (rather than replace) parent metadata
+  const previousImages = (await parent).openGraph?.images || [];
+
+  const { backgroundImage } = blogPost;
+
   return {
     title: blogPost.title,
     description: blogPost.title,
+    openGraph: {
+      images: [backgroundImage.url, ...previousImages],
+    },
   };
 }
 
