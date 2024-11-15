@@ -7,7 +7,7 @@ interface Props {
 export default async function HeadBackground({ blogPost }: Props) {
   const blogPostData = await blogPost;
 
-  const { title, coverImage, backgroundImage } = blogPostData;
+  const { title, coverImage, backgroundImage, expired } = blogPostData;
   const coverImgUrl = coverImage.url || "/images/background1.jpg";
 
   const bgrUrl = backgroundImage.url || coverImgUrl;
@@ -24,6 +24,11 @@ export default async function HeadBackground({ blogPost }: Props) {
         <div className="grid grid-cols-1 pb-8 text-center mt-10">
           <Suspense fallback={<h1>...Loading</h1>}>
             <h1 className="text-4xl leading-normal tracking-wider font-semibold text-white">
+              {expired && (
+                <span className="bg-[#ad0303] text-white text-3xl mr-1 py-1">
+                  &nbsp;EXPIRED&nbsp;
+                </span>
+              )}
               {title}
             </h1>
           </Suspense>

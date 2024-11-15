@@ -6,7 +6,7 @@ export default async function DealHot() {
   const blogPosts = await getBlogPostList("all");
   return (
     <div className="wrapper mb-16 md:mb-24">
-      <SectionTitle title="Deal hot" />
+      <SectionTitle title="Deals hot" />
       <BlogSection blogPosts={blogPosts} />
     </div>
   );
