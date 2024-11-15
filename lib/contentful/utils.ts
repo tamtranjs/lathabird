@@ -18,6 +18,8 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
     availableDates,
   } = item.fields;
 
+  const expired = item.fields.expired || false;
+
   const formatDate = moment(date).format("Do MMMM YYYY");
 
   let name = "";
@@ -83,6 +85,7 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
     depart,
     arrive,
     availableDates,
+    expired,
   };
 };
 

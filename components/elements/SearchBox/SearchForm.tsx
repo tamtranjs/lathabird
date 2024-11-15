@@ -42,16 +42,16 @@ export default function SearchForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-4"
+      className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4"
     >
-      <div className="flex items-center space-x-2">
+      <div className="grid grid-cols-5">
         <label
           htmlFor="fromPlace"
-          className="form-label font-medium text-slate-900 dark:text-white"
+          className="self-center form-label font-medium text-slate-900 dark:text-white text-[15px]"
         >
           Điểm đi
         </label>
-        <div className="w-full mt-2">
+        <div className="col-span-4">
           <input type="text" className="hidden" {...register("fromPlace")} />
           <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
             <SearchCitiesBox
@@ -66,14 +66,14 @@ export default function SearchForm() {
           )}
         </div>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="grid grid-cols-5">
         <label
           htmlFor="toPlace"
-          className="form-label font-medium text-slate-900 dark:text-white"
+          className="self-center col-span-1 content-center form-label font-medium text-slate-900 dark:text-white text-[15px]"
         >
           Điểm đến
         </label>
-        <div className="w-full mt-2">
+        <div className="col-span-4">
           <input type="text" className="hidden" {...register("toPlace")} />
           <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
             <SearchCitiesBox
@@ -85,18 +85,18 @@ export default function SearchForm() {
           </div>
         </div>
       </div>
-      <div className="flex items-center space-x-2">
+      <div className="grid grid-cols-5">
         <label
           htmlFor="monthYear"
-          className="form-label font-medium text-slate-900 dark:text-white"
+          className="self-center form-label font-medium text-slate-900 dark:text-white text-[15px]"
         >
           Thời gian
         </label>
-        <div className="w-full mt-2">
+        <div className="col-span-4">
           <input type="text" className="hidden" {...register("monthYear")} />
           <div className="w-full min-h-10 bg-transparent dark:bg-slate-900 dark:text-slate-200 rounded-md outline-none border border-gray-100 dark:border-gray-800 focus:ring-0">
             <SearchDateBox
-              placeholder="Tất cả các tháng sắp tới"
+              placeholder="Các tháng sắp tới"
               onChange={(value: string) => {
                 setValue("monthYear", value);
               }}
@@ -117,7 +117,7 @@ export default function SearchForm() {
           />
           <label
             htmlFor="show-pass-deal"
-            className="select-none text-slate-900 dark:text-white"
+            className="select-none text-slate-900 dark:text-white text-[15px]"
           >
             Hiển thị deal trước đó
           </label>

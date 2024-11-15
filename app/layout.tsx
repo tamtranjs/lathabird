@@ -1,13 +1,12 @@
-import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react"
+import { Analytics } from "@vercel/analytics/react";
 
 import { cn } from "@/lib/utils";
 
 const montserrat = Montserrat({ subsets: ["latin", "vietnamese"] });
 
-export const metadata: Metadata = {
+export const metadata = {
   title: "Lathabird",
   description: "Lathabird",
 };
@@ -19,9 +18,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={cn("bg-background text-[#161c2d]",  montserrat.className)}>
+      <body
+        className={cn("bg-background text-[#161c2d]", montserrat.className)}
+      >
         {children}
-        <Analytics/>
+        <Analytics />
       </body>
     </html>
   );
