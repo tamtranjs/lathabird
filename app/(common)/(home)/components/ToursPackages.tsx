@@ -1,9 +1,10 @@
-import TourItem from "@/components/elements/TourItem";
-import { getTourList } from "@/lib/contentful/tours/getTourList";
+import TourItemAlpha from "@/components/elements/TourItemAlpha";
+
+import { getTourListAlpha } from "@/lib/contentful/tours/getTourList";
 import SectionTitle from "@/components/elements/SectionTitle";
 
 export default async function ToursPackages() {
-  const tourList = await getTourList();
+  const tourList = await getTourListAlpha();
 
   return (
     <div className="wrapper relative md:mt-24 mt-16">
@@ -12,7 +13,7 @@ export default async function ToursPackages() {
       <div className="grid lg:grid-cols-4 md:grid-cols-3 grid-cols-2 mt-6 gap-6">
         {tourList.ok &&
           tourList.data.map((item: any) => {
-            return <TourItem key={item.id} {...item} />;
+            return <TourItemAlpha key={item.id} {...item} />;
           })}
       </div>
     </div>

@@ -1,4 +1,4 @@
-import TourItem from "@/components/elements/TourItem";
+import TourItemAlpha from "@/components/elements/TourItemAlpha";
 import { notFound } from "next/navigation";
 
 export default async function TourGrid({ tourList }: { tourList: any }) {
@@ -12,7 +12,7 @@ export default async function TourGrid({ tourList }: { tourList: any }) {
     <div className="wrapper relative">
       <div className="grid grid-cols-2 md:grid-cols-3 gap-6">
         {tourListData.data.map((item: any) => {
-          return <TourItem key={item.id} {...item} />;
+          return <TourItemAlpha key={item.id} {...item} />;
         })}
       </div>
     </div>

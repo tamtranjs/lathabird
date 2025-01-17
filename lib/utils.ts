@@ -119,3 +119,10 @@ export const removeDuplicates = (blogs: any) => {
 
   return uniqueBlogs;
 };
+
+export const trimExcerpt = (text: string, maxLength = 100, suffix = "...") => {
+  if (text.length > maxLength) {
+    return text.substring(0, maxLength - suffix.length).trim() + suffix;
+  }
+  return text;
+};

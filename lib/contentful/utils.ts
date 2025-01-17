@@ -137,3 +137,75 @@ export const getTourObject = (item: any, assets: any) => {
     label,
   };
 };
+
+export const getTourObjectAlpha = (item: any, assets: any) => {
+  const id = item.sys.id;
+
+  const {
+    title,
+    slug,
+    excerpt,
+    countriesRoute,
+    // duration,
+    // activityType,
+    // groupSize,
+    // language,
+    // costPerDay,
+    photoList,
+    // tourDescription,
+    // label,
+    //place,
+    //location,
+  } = item.fields;
+
+  let galleryImages: any[] = [];
+  photoList.forEach((image: any) => {
+    assets.forEach((asset: any) => {
+      if (asset.sys.id === image.sys.id) {
+        galleryImages.push({
+          url: `https://${asset.fields.file.url.slice(2)}`,
+          width: asset.fields.file.details.image.width,
+          height: asset.fields.file.details.image.height,
+          fileName: asset.fields.file.fileName,
+        });
+      }
+    });
+  });
+
+  let backgroundImage = {
+    url: "",
+    width: 0,
+    height: 0,
+    fileName: 0,
+  };
+  assets.forEach((asset: any) => {
+    if (
+      item.fields.backgroundImage &&
+      asset.sys.id === item.fields.backgroundImage.sys.id
+    ) {
+      backgroundImage.url = `https://${asset.fields.file.url.slice(2)}`;
+      backgroundImage.width = asset.fields.file.details.image.width;
+      backgroundImage.height = asset.fields.file.details.image.height;
+      backgroundImage.fileName = asset.fields.file.fileName;
+    }
+  });
+
+  return {
+    id,
+    title,
+    slug,
+    excerpt,
+    backgroundImage,
+    countriesRoute,
+    //place,
+    //location,
+    // duration,
+    // activityType,
+    // groupSize,
+    // language,
+    // costPerDay,
+    // tourDescription,
+    photoList: galleryImages,
+    // label,
+  };
+};

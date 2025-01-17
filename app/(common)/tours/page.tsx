@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 
 import HeadBackGround from "@/components/layouts/HeadBackGround";
 import TourGrid from "./components/TourGrid";
-import { getTourList } from "@/lib/contentful/tours/getTourList";
+import { getTourListAlpha } from "@/lib/contentful/tours/getTourList";
 
 export const metadata: Metadata = {
   title: "Tours | Lathabird",
@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Tours() {
-  const tourList = getTourList();
+  const tourList = getTourListAlpha();
 
   return (
     <>
