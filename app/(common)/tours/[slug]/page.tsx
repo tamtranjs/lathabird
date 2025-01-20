@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import TourBody from "./components/TourBody";
+import TourContent from "./components/TourContent";
 import { getTourDetail } from "@/lib/contentful/tours/getTourDetail";
 import { Suspense } from "react";
 
@@ -31,7 +32,8 @@ export default async function TourDetail({ params: { slug } }: Props) {
   return (
     <>
       <Suspense fallback={<h1>Loading..</h1>}>
-        <TourBody slug={slug} />
+        {/* <TourBody slug={slug} /> */}
+        <TourContent slug={slug} />
       </Suspense>
     </>
   );

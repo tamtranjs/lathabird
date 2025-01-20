@@ -38,7 +38,7 @@ export default function TourItemAlpha(blogPost: any) {
 
       <div className="mt-6">
         <Link
-          href={`/blogs/${slug}`}
+          href={`/tours/${slug}`}
           className="text-lg font-medium hover:text-red-500 duration-500 ease-in-out"
         >
           {expired && (
