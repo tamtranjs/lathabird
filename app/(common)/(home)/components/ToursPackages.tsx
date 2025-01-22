@@ -11,7 +11,7 @@ export default async function ToursPackages() {
     <div className="wrapper relative md:mt-24 mt-16">
       <SectionTitle title="Tours Phổ Biến" />
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="layout">
         {tourList.ok &&
           tourList.data.map((tour: any) => (
             <TourItemBeta key={tour.id} tour={tour} />

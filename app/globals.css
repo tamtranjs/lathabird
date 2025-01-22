@@ -102,4 +102,7 @@
   .wrapper {
     @apply container max-w-[1120px];
   }
+  .layout {
+    @apply grid grid-cols-1 xm:grid-cols-2 md:grid-cols-3 gap-6;
+  }
 }

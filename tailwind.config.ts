@@ -19,9 +19,16 @@ const config = {
         xl: "0",
       },
     },
+    screens: {
+      sm: "769px",
+
+      md: "992px",
+
+      lg: "1024px",
+    },
     extend: {
       screens: {
-        xm: "576px",
+        xm: "577px",
       },
       colors: {
         border: "hsl(var(--border))",

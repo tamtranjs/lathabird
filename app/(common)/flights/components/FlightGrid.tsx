@@ -2,18 +2,16 @@ import BlogItem from "@/components/elements/BlogItem";
 import { getBlogPostList } from "@/lib/contentful/getBlogPostList";
 
 export default async function FlightGrid() {
-
   const blogPosts = await getBlogPostList("flight");
 
   return (
     <div className="wrapper relative">
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-        {blogPosts && blogPosts.map((item: any, index: number) => {
-          return (
-            <BlogItem key={index} blogPost={item}/>
-          )
-        })}
+      <div className="layout">
+        {blogPosts &&
+          blogPosts.map((item: any, index: number) => {
+            return <BlogItem key={index} blogPost={item} />;
+          })}
       </div>
     </div>
-  )
+  );
 }

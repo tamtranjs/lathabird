@@ -10,7 +10,7 @@ export default async function TourGrid({ tourList }: { tourList: any }) {
 
   return (
     <div className="wrapper relative">
-      <div className="grid grid-cols-1 xm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="layout">
         {tourListData.data.map((tour: any) => {
           return <TourItemBeta key={tour.id} tour={tour} />;
         })}
