@@ -154,6 +154,7 @@ export const getTourObjectAlpha = (item: any, assets: any) => {
     detailedSchedule,
     information,
     priceList,
+    lowestPrice,
     tourSchedule,
 
     photoList,
@@ -206,6 +207,7 @@ export const getTourObjectAlpha = (item: any, assets: any) => {
     detailedSchedule,
     information,
     priceList,
+    lowestPrice,
     tourSchedule,
 
     photoList: galleryImages,

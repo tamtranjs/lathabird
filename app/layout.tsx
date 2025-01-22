@@ -1,10 +1,13 @@
-import { Montserrat } from "next/font/google";
+import { Roboto } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/react";
 
 import { cn } from "@/lib/utils";
 
-const montserrat = Montserrat({ subsets: ["latin", "vietnamese"] });
+const roboto = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
+  subsets: ["latin", "vietnamese"],
+});
 
 export const metadata = {
   title: "Lathabird",
@@ -18,9 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={cn("bg-background text-[#161c2d]", montserrat.className)}
-      >
+      <body className={cn("bg-background text-[#161c2d]", roboto.className)}>
         {children}
         <Analytics />
       </body>

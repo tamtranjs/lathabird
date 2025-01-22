@@ -127,7 +127,7 @@ export default function Footer() {
                         type="submit"
                         id="submitsubscribe"
                         name="send"
-                        className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-red-500 text-white rounded-md"
+                        className="py-2 px-5 inline-block font-semibold tracking-wide align-middle duration-500 text-base text-center bg-primary text-white rounded-md"
                       >
                         Đăng kí
                       </button>
