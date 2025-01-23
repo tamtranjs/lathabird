@@ -20,7 +20,8 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
 
   const expired = item.fields.expired || false;
 
-  const formatDate = moment(date).format("Do MMMM YYYY");
+  // const formatDate = moment(date).format("Do MMMM YYYY");
+  const formattedDate: string = moment(date).format("DD/MM/YYYY");
 
   let name = "";
   let avatarId = "";
@@ -71,7 +72,7 @@ export const getBlogObject = (item: any, assets: any, entries: any) => {
     title,
     slug,
     excerpt,
-    date: formatDate,
+    date: formattedDate,
     tag,
     backgroundImage,
     coverImage,

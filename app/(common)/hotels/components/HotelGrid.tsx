@@ -1,19 +1,17 @@
-import BlogItem from "@/components/elements/BlogItem";
+import BlogItemAlpha from "@/components/elements/BlogItemAlpha";
 import { getBlogPostList } from "@/lib/contentful/getBlogPostList";
 
 export default async function HotelGrid() {
-
   const blogPosts = await getBlogPostList("hotel");
 
   return (
     <div className="wrapper relative">
       <div className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-6">
-        {blogPosts && blogPosts.map((item: any, index: number) => {
-          return (
-            <BlogItem key={index} blogPost={item}/>
-          )
-        })}
+        {blogPosts &&
+          blogPosts.map((item: any, index: number) => {
+            return <BlogItemAlpha key={index} blogPost={item} />;
+          })}
       </div>
     </div>
-  )
+  );
 }

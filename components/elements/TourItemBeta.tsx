@@ -1,27 +1,11 @@
 import Image from "next/image";
 import Link from "next/link";
 import { capitalizeWords } from "@/lib/utils";
+import ItemWrapper from "./ItemWrapper";
 
 export default function TourItemBeta({ tour }: any) {
   return (
-    <Link
-      href={`/tours/${tour.slug}`}
-      className="group flex flex-col relative text-[#2b2c2d] h-full border border-[#e5e5e6] rounded-sm overflow-hidden hover:border-[#87878ca1]"
-    >
-      <div className="relative w-full min-h-[140px] max-h-[320px] aspect-[16/9]">
-        <span className="box-border block overflow-hidden w-auto h-auto bg-transparent opacity-100 border-0 m-0 p-0 absolute inset-0">
-          <div className="h-full relative overflow-hidden ease-in-out duration-300 group-hover:scale-105">
-            <Image
-              className="absolute inset-0 box-border p-0 border-none m-auto block w-0 h-0 min-w-full max-w-full min-h-full max-h-full object-cover object-center"
-              src={tour.backgroundImage.url}
-              alt={tour.backgroundImage.fileName}
-              width={tour.backgroundImage.width}
-              height={tour.backgroundImage.height}
-            />
-          </div>
-        </span>
-      </div>
-
+    <ItemWrapper type="tours" image={tour.backgroundImage} slug={tour.slug}>
       <div className="flex flex-col justify-start flex-grow gap-1 p-4 pb-10 bg-[#fff]">
         <h6 className="font-semibold tracking-[0.48px]">
           {capitalizeWords(tour.title)}
@@ -34,6 +18,6 @@ export default function TourItemBeta({ tour }: any) {
           </p>
         </div>
       </div>
-    </Link>
+    </ItemWrapper>
   );
 }

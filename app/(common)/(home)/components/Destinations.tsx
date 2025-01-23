@@ -6,7 +6,7 @@ import SectionTitle from "@/components/elements/SectionTitle";
 export default function Destinations() {
   return (
     <div className="wrapper">
-      <SectionTitle title="Bạn muốn đi chơi đâu?" />
+      <SectionTitle title="Du Lịch Theo Mùa" />
       <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 relative mt-6 gap-6">
         {topDestination.map((item, index) => {
           return (

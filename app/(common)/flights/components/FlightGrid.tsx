@@ -1,4 +1,4 @@
-import BlogItem from "@/components/elements/BlogItem";
+import BlogItemAlpha from "@/components/elements/BlogItemAlpha";
 import { getBlogPostList } from "@/lib/contentful/getBlogPostList";
 
 export default async function FlightGrid() {
@@ -9,7 +9,7 @@ export default async function FlightGrid() {
       <div className="layout">
         {blogPosts &&
           blogPosts.map((item: any, index: number) => {
-            return <BlogItem key={index} blogPost={item} />;
+            return <BlogItemAlpha key={index} blogPost={item} />;
           })}
       </div>
     </div>
