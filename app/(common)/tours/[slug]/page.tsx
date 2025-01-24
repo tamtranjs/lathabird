@@ -16,7 +16,7 @@ interface Props {
 export async function generateMetadata({
   params: { slug },
 }: Props): Promise<Metadata> {
-  const tour = await getTourDetail(slug);
+  const tour = await getTourDetailAlpha(slug);
 
   if (!tour.ok) {
     return {
