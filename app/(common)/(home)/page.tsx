@@ -13,13 +13,13 @@ export default async function Home() {
   return (
     <>
       <HomeBackground />
-      <section className="relative md:py-24 py-16 overflow-hidden">
+      <section className="relative md:py-8 py-16 overflow-hidden">
         <DealHot />
         <DealFlight />
         <DealHotel />
         <Destinations />
         <ToursPackages />
-        <Clients />
+        {/* <Clients /> */}
         <PhotosCarousel />
       </section>
     </>

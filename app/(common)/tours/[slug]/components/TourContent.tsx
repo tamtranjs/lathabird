@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { getTourDetailAlpha } from "@/lib/contentful/tours/getTourDetail";
-import HeadBackground from "./HeadBackground";
+import HeadBackgroundAlpha from "./HeadBackgroundAlpha";
 import ImageGridView from "./ImageGridView";
 
 import TourExcerpt from "./TourExcerpt";
@@ -11,20 +11,13 @@ import Information from "./Information";
 
 import PriceList from "./PriceList";
 import TourSchedule from "./TourSchedule";
+import TourTitle from "./TourTitle";
 
 interface Props {
   slug: string;
 }
 
-export default async function TourContent(props: Props) {
-  const { slug } = props;
-
-  const tourObjAlpha = await getTourDetailAlpha(slug);
-
-  if (!tourObjAlpha.ok) {
-    return notFound();
-  }
-
+export default async function TourContent({ tour }: any) {
   const {
     title,
     excerpt,
@@ -40,35 +33,35 @@ export default async function TourContent(props: Props) {
     information,
     priceList,
     tourSchedule,
-  }: any = tourObjAlpha.data;
+  }: any = await tour;
 
   return (
     <>
-      <HeadBackground title={title} backgroundPhoto={backgroundImage.url} />
-      <section className="relative md:py-24 py-16">
-        <div className="wrapper">
-          <div className="grid md:grid-cols-12 grid-cols-1 gap-6">
-            <div className="md:col-span-6 lg:col-span-8">
-              <TourExcerpt excerpt={excerpt} />
-              <ImageGridView photoList={photoList} />
-              <TourSummary
-                title={title}
-                countriesRoute={countriesRoute}
-                citiesRoute={citiesRoute}
-                tourCode={tourCode}
-                duration={duration}
-                airline={airline}
-              />
-              <PriceList content={priceList} />
-              <TourSchedule content={tourSchedule} />
-              <Highlight content={highlight} />
-              <DetailSchedule content={detailedSchedule} />
-              <Information content={information} />
-            </div>
-            <div className="md:col-span-5 lg:col-span-4"></div>
+      {/* <section className="relative md:py-24 py-16"> */}
+      <TourTitle title={title} countriesRoute={countriesRoute} />
+      <div className="wrapper">
+        <div className="grid md:grid-cols-12 grid-cols-1 gap-6">
+          <div className="col-span-12">
+            <ImageGridView photoList={photoList} />
+            <TourExcerpt excerpt={excerpt} />
+
+            <TourSummary
+              title={title}
+              countriesRoute={countriesRoute}
+              citiesRoute={citiesRoute}
+              tourCode={tourCode}
+              duration={duration}
+              airline={airline}
+            />
+            <PriceList content={priceList} />
+            <TourSchedule content={tourSchedule} />
+            <Highlight content={highlight} />
+            <DetailSchedule content={detailedSchedule} />
+            <Information content={information} />
           </div>
         </div>
-      </section>
+      </div>
+      {/* </section> */}
     </>
   );
 }

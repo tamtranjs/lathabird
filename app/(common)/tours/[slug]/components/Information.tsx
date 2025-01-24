@@ -1,12 +1,12 @@
-import RichText from "@/components/layouts/RichText";
+import RichTextAlpha from "@/components/layouts/RichTextAlpha";
 
 export default function Information({ content }: any) {
   return (
     <div className="mt-6">
-      <h2 className="text-lg font-semibold text-[#ff0000]">LƯU Ý:</h2>
+      <h2 className="text-lg font-semibold text-primary">LƯU Ý:</h2>
 
       <div className="text-slate-400 mt-4">
-        <RichText content={content} />
+        <RichTextAlpha content={content} />
       </div>
     </div>
   );

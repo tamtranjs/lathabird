@@ -5,9 +5,11 @@ import SectionTitle from "@/components/elements/SectionTitle";
 export default async function DealHotel() {
   const blogPosts = await getBlogPostList("hotel");
   return (
-    <div className="wrapper mb-16 md:mb-24">
-      <SectionTitle title="Deals dịch vụ khách sạn" />
-      <BlogSection blogPosts={blogPosts} />
+    <div className="bg-[#f5f9ff] py-8 mb-16 md:mb-16">
+      <div className="wrapper">
+        <SectionTitle title="Deals Khách Sạn" />
+        <BlogSection blogPosts={blogPosts} />
+      </div>
     </div>
   );
 }

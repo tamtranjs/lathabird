@@ -31,13 +31,13 @@ export default function ItemWrapper({
               width={image.width}
               height={image.height}
             />
-            <div className="absolute top-0 start-0 p-4 opacity-0 group-hover:opacity-100 duration-500">
+            {/* <div className="absolute top-0 start-0 p-4 opacity-0 group-hover:opacity-100 duration-500">
               {tag && (
                 <span className="bg-red-500 text-white text-[12px] px-2.5 py-1 font-medium rounded-md h-5">
                   {tag}
                 </span>
               )}
-            </div>
+            </div> */}
             {expired && (
               <div className="absolute top-[50%] left-1/2 -translate-x-1/2 -translate-y-1/2 -rotate-12 bg-[#ad0303] text-white text-3xl px-2 py-2 opacity-40">
                 <p>EXPIRED</p>

@@ -346,7 +346,7 @@ export const blogData: Blog[] = [
 
 export const menuItems = [
   {
-    title: "Chuyến bay",
+    title: "Vé giá rẻ",
     url: "/flights",
   },
   {
@@ -354,7 +354,7 @@ export const menuItems = [
     url: "/hotels",
   },
   {
-    title: "Tour và trải nghiệm",
+    title: "Tours và trải nghiệm",
     url: "/tours",
   },
   // {

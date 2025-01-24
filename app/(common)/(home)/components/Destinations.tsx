@@ -5,9 +5,9 @@ import SectionTitle from "@/components/elements/SectionTitle";
 
 export default function Destinations() {
   return (
-    <div className="wrapper">
+    <div className="wrapper mb-16 md:mb-16">
       <SectionTitle title="Du Lịch Theo Mùa" />
-      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 relative mt-6 gap-6">
+      <div className="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 relative gap-6">
         {topDestination.map((item, index) => {
           return (
             <div
@@ -29,9 +29,9 @@ export default function Destinations() {
                 >
                   {item.place}
                 </Link>
-                <p className="text-white/70 group-hover:text-white text-sm duration-500">
+                {/* <p className="text-white/70 group-hover:text-white text-sm duration-500">
                   {item.hotels}
-                </p>
+                </p> */}
               </div>
             </div>
           );

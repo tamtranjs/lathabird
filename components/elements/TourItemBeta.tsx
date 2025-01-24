@@ -12,8 +12,8 @@ export default function TourItemBeta({ tour }: any) {
         </h6>
         <div className="text-[#757575] font-normal mt-1 text-sm">
           <p>{capitalizeWords(tour.duration)}</p>
-          <p>{capitalizeWords(tour.countriesRoute)}</p>
-          <p>
+          <p className="mt-1">{capitalizeWords(tour.countriesRoute)}</p>
+          <p className="mt-1">
             Từ <span className="text-secondary">{tour.lowestPrice} VND</span>{" "}
           </p>
         </div>

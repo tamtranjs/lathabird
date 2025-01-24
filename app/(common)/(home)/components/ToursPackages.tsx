@@ -8,7 +8,7 @@ export default async function ToursPackages() {
   const tourList = await getTourListAlpha();
 
   return (
-    <div className="wrapper relative md:mt-24 mt-16">
+    <div className="wrapper relative md:mb-16 mb-16">
       <SectionTitle title="Tours Phổ Biến" />
 
       <div className="layout">
