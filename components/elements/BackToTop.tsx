@@ -33,10 +33,10 @@ export default function BackToTop() {
     <button
       onClick={scrollToTop}
       id="back-to-top"
-      className="back-to-top fixed text-lg rounded-md z-10 bottom-5 end-5 size-8 text-center transition-opacity duration-300 bg-palette3 hover:bg-primary text-primary hover:text-white justify-center items-center"
+      className="rounded-full back-to-top p-2 sm:p-4 fixed text-lg z-10 bottom-[70px] sm:bottom-[90px] right-6 end-5 text-center transition-opacity duration-300 bg-blue-500 hover:bg-blue-600 text-white justify-center items-center"
       style={{ display: visible ? "inline-flex" : "none" }}
     >
-      <FiArrowUp />
+      <FiArrowUp className="w-6 h-6" />
     </button>
   );
 }
