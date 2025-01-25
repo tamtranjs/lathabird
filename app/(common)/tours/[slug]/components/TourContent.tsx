@@ -11,7 +11,7 @@ import Information from "./Information";
 
 import PriceList from "./PriceList";
 import TourSchedule from "./TourSchedule";
-import TourTitle from "./TourTitle";
+import IntroBox from "@/components/elements/IntroBox";
 
 interface Props {
   slug: string;
@@ -38,7 +38,12 @@ export default async function TourContent({ tour }: any) {
   return (
     <>
       {/* <section className="relative md:py-24 py-16"> */}
-      <TourTitle title={title} countriesRoute={countriesRoute} />
+      <IntroBox>
+        <h1 className="text-2xl leading-normal tracking-wider font-semibold text-black">
+          {title}
+        </h1>
+        <h2 className="text-2xl font-semibold">{countriesRoute}</h2>
+      </IntroBox>
       <div className="wrapper">
         <div className="grid md:grid-cols-12 grid-cols-1 gap-6">
           <div className="col-span-12">

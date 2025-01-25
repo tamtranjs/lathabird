@@ -37,10 +37,12 @@ export default async function TourDetail({ params: { slug } }: Props) {
     return notFound();
   }
 
+  const backgroundImageUrl: string = `${tour.data?.backgroundImage.url}`;
+
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
-        <HeadBackgroundAlpha tour={tour} />
+        <HeadBackgroundAlpha backgroundImageUrl={backgroundImageUrl} />
       </Suspense>
       <section className="relative">
         <Suspense fallback={<div>Loading...</div>}>

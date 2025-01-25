@@ -2,8 +2,8 @@ import type { Metadata, ResolvingMetadata } from "next";
 import BlogContent from "./components/BlogContent";
 import { Suspense } from "react";
 import { getBlogPostDetail } from "@/lib/contentful/getBlogPostDetail";
-import HeadBackground from "./components/HeadBackground";
 import { notFound } from "next/navigation";
+import HeadBackgroundAlpha from "../../tours/[slug]/components/HeadBackgroundAlpha";
 
 interface Props {
   params: {
@@ -17,7 +17,7 @@ export async function generateMetadata(
 ): Promise<Metadata> {
   const blogPost = await getBlogPostDetail(slug);
 
-  if (!blogPost) {
+  if (!blogPost.ok) {
     return {
       title: "Page Not Found",
       description: "Could not find requested resource",
@@ -27,7 +27,8 @@ export async function generateMetadata(
   // optionally access and extend (rather than replace) parent metadata
   const previousImages = (await parent).openGraph?.images || [];
 
-  const { backgroundImage, title, excerpt } = blogPost;
+  // const { backgroundImage, title, excerpt } = blogPost;
+  const { backgroundImage, title, excerpt } = blogPost.data || {};
 
   return {
     title: title,
@@ -38,10 +39,10 @@ export async function generateMetadata(
       url: `https://${process.env.DOMAIN}/blogs/${slug}`,
       images: [
         {
-          url: backgroundImage.url,
-          width: backgroundImage.width,
-          height: backgroundImage.height,
-          alt: `${backgroundImage.fileName}`,
+          url: backgroundImage?.url || "",
+          width: backgroundImage?.width || "",
+          height: backgroundImage?.height || "",
+          alt: `${backgroundImage?.fileName}`,
         },
         ...previousImages,
       ],
@@ -57,14 +58,16 @@ export default async function BlogDetail({ params: { slug } }: Props) {
     return notFound();
   }
 
+  const backgroundImageUrl: string = `${blogPost.data?.backgroundImage.url}`;
+
   return (
     <>
       <Suspense fallback={<div>Loading...</div>}>
-        <HeadBackground blogPost={blogPost} />
+        <HeadBackgroundAlpha backgroundImageUrl={backgroundImageUrl} />
       </Suspense>
-      <section className="relative md:py-24 py-16">
+      <section>
         <Suspense fallback={<div>Loading...</div>}>
-          <BlogContent blogPost={blogPost} />
+          <BlogContent blogPost={blogPost.data} />
         </Suspense>
       </section>
     </>

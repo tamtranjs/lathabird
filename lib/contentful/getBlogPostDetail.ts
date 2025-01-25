@@ -8,12 +8,18 @@ export const getBlogPostDetail = async (slug: string) => {
   const data = await response.json();
 
   if (data.items.length === 0) {
-    return null;
+    return {
+      ok: false,
+      data: null,
+    };
   } else {
     const item = data.items[0];
     const assets = data.includes.Asset;
     const entries = data.includes.Entry;
 
-    return getBlogObject(item, assets, entries);
+    return {
+      ok: true,
+      data: getBlogObject(item, assets, entries),
+    };
   }
 };
