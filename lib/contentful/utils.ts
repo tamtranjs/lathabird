@@ -214,3 +214,43 @@ export const getTourObjectAlpha = (item: any, assets: any) => {
     photoList: galleryImages,
   };
 };
+
+export const getPhotoObject = (item: any, assets: any) => {
+  const id = item.sys.id;
+
+  const { backgroundImages, carouselImages } = item.fields;
+
+  let backgroundImgs: any[] = [];
+  backgroundImages.forEach((image: any) => {
+    assets.forEach((asset: any) => {
+      if (asset.sys.id === image.sys.id) {
+        backgroundImgs.push({
+          url: `https://${asset.fields.file.url.slice(2)}`,
+          width: asset.fields.file.details.image.width,
+          height: asset.fields.file.details.image.height,
+          fileName: asset.fields.file.fileName,
+        });
+      }
+    });
+  });
+
+  let carouselImgs: any[] = [];
+  carouselImages.forEach((image: any) => {
+    assets.forEach((asset: any) => {
+      if (asset.sys.id === image.sys.id) {
+        carouselImgs.push({
+          url: `https://${asset.fields.file.url.slice(2)}`,
+          width: asset.fields.file.details.image.width,
+          height: asset.fields.file.details.image.height,
+          fileName: asset.fields.file.fileName,
+        });
+      }
+    });
+  });
+
+  return {
+    id,
+    backgroundImages: backgroundImgs,
+    carouselImages: carouselImgs,
+  };
+};

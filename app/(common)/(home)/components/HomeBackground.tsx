@@ -3,40 +3,43 @@
 import React, { useEffect, useState } from "react";
 import SearchForm from "@/components/elements/SearchBox/SearchForm";
 import { runWarmUpDatabase } from "@/actions/mongo.worldCities";
-
-const images = [
-  "/images/background1.jpg",
-  "/images/background3.jpg",
-  "/images/background6.jpg",
-  "/images/background8.jpg",
-  "/images/background9.jpg",
-  "/images/background10.jpg",
-  "/images/background11.jpg",
-];
+import { getImageList } from "@/lib/contentful/photos/getImageList";
 
 export default function HomeBackground() {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [backgroundImages, setBackgroundImages] = useState<any>([]);
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % backgroundImages.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [backgroundImages]);
 
   useEffect(() => {
     runWarmUpDatabase();
+    const fetchPhotos = async () => {
+      try {
+        const response = await getImageList();
+        const data = await response.data;
+
+        setBackgroundImages(data.backgroundImages);
+      } catch (error) {
+        console.error("Error fetching photos:", error);
+      }
+    };
+    fetchPhotos();
   }, []);
 
   return (
     <section className="relative bg-gray-100 md:pt-48 md:pb-36 py-36">
-      {images.map((src, index) => (
+      {backgroundImages.map((image: any, index: number) => (
         <div
-          key={index}
+          key={image.url}
           className={`absolute inset-0 w-full h-full bg-cover bg-center opacity-0 transition-opacity duration-2000 ease-in-out ${
             index === currentIndex ? "opacity-100" : ""
           }`}
-          style={{ backgroundImage: `url(${src})` }}
+          style={{ backgroundImage: `url(${image.url})` }}
         ></div>
       ))}
       {/* <div className="hidden sm:block"><Tagline /></div> */}
