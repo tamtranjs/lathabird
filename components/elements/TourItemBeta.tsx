@@ -1,6 +1,4 @@
-import Image from "next/image";
-import Link from "next/link";
-import { capitalizeWords } from "@/lib/utils";
+import { capitalizeWords, formatMoney } from "@/lib/utils";
 import ItemWrapper from "./ItemWrapper";
 
 export default function TourItemBeta({ tour }: any) {
@@ -14,7 +12,10 @@ export default function TourItemBeta({ tour }: any) {
           <p>{capitalizeWords(tour.duration)}</p>
           <p className="mt-1">{capitalizeWords(tour.countriesRoute)}</p>
           <p className="mt-1">
-            Từ <span className="text-secondary">{tour.lowestPrice} VND</span>{" "}
+            Từ{" "}
+            <span className="text-secondary">
+              {formatMoney(tour.lowestPrice)}
+            </span>{" "}
           </p>
         </div>
       </div>

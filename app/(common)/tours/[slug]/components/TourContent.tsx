@@ -60,7 +60,7 @@ export default async function TourContent({ tour }: any) {
               airline={airline}
             />
             <PriceList content={priceList} />
-            <TourSchedule content={tourSchedule} />
+            {/* <TourSchedule content={tourSchedule} /> */}
             <Highlight content={highlight} />
             <DetailSchedule content={detailedSchedule} />
             <Information content={information} />

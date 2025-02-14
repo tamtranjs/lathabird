@@ -254,3 +254,32 @@ export const getPhotoObject = (item: any, assets: any) => {
     carouselImages: carouselImgs,
   };
 };
+
+export const getSeasonalTravelObject = (item: any, assets: any) => {
+  const id = item.sys.id;
+
+  const { title, slug, description } = item.fields;
+
+  let image = {
+    url: "",
+    width: 0,
+    height: 0,
+    fileName: 0,
+  };
+  assets.forEach((asset: any) => {
+    if (item.fields.image && asset.sys.id === item.fields.image.sys.id) {
+      image.url = `https://${asset.fields.file.url.slice(2)}`;
+      image.width = asset.fields.file.details.image.width;
+      image.height = asset.fields.file.details.image.height;
+      image.fileName = asset.fields.file.fileName;
+    }
+  });
+
+  return {
+    id,
+    title,
+    slug,
+    image,
+    description,
+  };
+};

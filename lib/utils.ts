@@ -134,3 +134,14 @@ export const capitalizeWords = (text: string) => {
     .map((word) => word.charAt(0).toUpperCase() + word.slice(1)) // Capitalize the first letter of each word
     .join(" "); // Join the words back into a single string
 };
+
+export const formatMoney = (
+  amount: number,
+  currency = "VND",
+  locale = "vi-VN"
+) => {
+  return new Intl.NumberFormat(locale, {
+    style: "currency",
+    currency: currency,
+  }).format(amount);
+};
